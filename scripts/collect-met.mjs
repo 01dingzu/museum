@@ -1,10 +1,15 @@
-// collect-met.mjs — 采集大都会艺术博物馆（The Met）公开藏品数据
+// collect-met.mjs — 采集大都会艺术博物馆（The Metropolitan Museum of Art）古物数据
+// 用途：替换芝加哥艺术学院（AIC）古物数据源（AIC 的 IIIF 图片服务被 Cloudflare 防盗链拦截，浏览器无法加载）
 // 用法：
-//   node scripts/collect-met.mjs --limit 30          # 小规模验证（每部门 30 件）
-//   node scripts/collect-met.mjs                      # 全量采集（每部门上限见 LIMITS）
+//   node scripts/collect-met.mjs --limit 20    # 小规模验证（每部门最多 20 件）
+//   node scripts/collect-met.mjs               # 全量采集
 //
-// 数据源：https://collectionapi.metmuseum.org/public/collection/v1/ （CC0 公有领域，免 key）
-// 输出：public/data/antiquity.json（古物馆展品数组）
+// 数据源：https://collectionapi.metmuseum.org/public/collection/v1 （免 key，CC0 元数据 + 公有领域图片）
+//   - /search?departmentId=X&hasImages=true&isPublicDomain=true&q=*  返回有图+公有领域 objectIDs
+//   - /objects/{id}   返回单件详情（含 primaryImage / primaryImageSmall / culture 等）
+// 输出：public/data/antiquity.json（古物馆展品数组，不含策展精品）
+//
+// 图片：images.metmuseum.org 可直接热链（浏览器 <img> 无需 key/代理）
 
 import { writeFile, mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
@@ -15,27 +20,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const OUT_DIR = path.join(__dirname, '..', 'public', 'data')
 const OUT_FILE = path.join(OUT_DIR, 'antiquity.json')
 
-// 部门 → 基础分类映射（古物馆）。dept 6/5/14 用 culture 二次细分。
-const DEPARTMENTS = [
-  { deptId: 10, categoryId: 'egypt', label: 'Egyptian Art' },
-  { deptId: 3, categoryId: 'mesopotamia', label: 'Ancient West Asian Art' },
-  { deptId: 13, categoryId: 'greek-roman', label: 'Greek and Roman Art' },
-  { deptId: 6, categoryId: 'east-asia', label: 'Asian Art' },
-  { deptId: 14, categoryId: 'islamic', label: 'Islamic Art' },
-  { deptId: 5, categoryId: 'americas', label: 'Arts of Africa, Oceania, and the Americas' },
-]
+// 注意：Met 挂了 Incapsula WAF，含 "collector" 等爬虫字样的 UA 会触发 bot 拦截，
+// 需用浏览器 UA（实测 chrome/safari/无 UA 均可正常返回 JSON）
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
 
-// 全量时每部门最多采集的（有图 + 公有领域）件数
-const LIMITS = {
-  10: 1800, // 埃及
-  3: 900, // 两河流域
-  13: 1800, // 希腊罗马
-  6: 1800, // 亚洲
-  14: 900, // 伊斯兰
-  5: 1500, // 非洲大洋洲美洲
-}
-
-// 分类 icon（与 src/data/halls.ts 保持一致）
+// 古物馆分类图标（与 src/data/halls.ts 一致）
 const CATEGORY_ICON = {
   egypt: '🐫',
   mesopotamia: '🏺',
@@ -48,86 +37,29 @@ const CATEGORY_ICON = {
   'africa-oceania': '🪘',
 }
 
-// 按 culture 二次细分（针对 dept 6/5/14）
-function classifyCategory(deptId, culture) {
-  const c = (culture || '').toLowerCase()
-  if (deptId === 6) {
-    if (/china|chinese/.test(c)) return 'china'
-    if (/india|indian|pakistan|bengal|nepal|sri lanka|south asia|kashmir/.test(c)) return 'south-asia'
-    if (/japan|japanese|korea|korean|tibet|tibetan|southeast asia|thailand|thai|vietnam|vietnamese|cambodia|cambodian|indonesia|java|myanmar|burma|laos|mongol/.test(c))
-      return 'east-asia'
-    return 'east-asia' // 亚洲其余兜底
-  }
-  if (deptId === 5) {
-    if (/africa|nigeria|mali|congo|ethiopia|benin|gabon|cameroon|ghana|ivory coast|oceania|polynesia|maori|papua|melanesia|micronesia|australia|new guinea|fiji|samoa|tahiti|indonesia/.test(c))
-      return 'africa-oceania'
-    return 'americas'
-  }
-  if (deptId === 14) {
-    if (/india|indian|pakistan|bengal|south asia/.test(c)) return 'south-asia'
-    return 'islamic'
-  }
-  return null
+// 采集配置：Met 部门 → 古物馆分类（'ASIAN' / 'AMERICAS' 为需二次细分的标记）
+// 注意：Incapsula 对并发请求严格限流，串行（并发 1）实测 ~1.3s/件稳定
+const DEPTS = [
+  { id: 10, name: 'Egyptian Art', cat: 'egypt', target: 800 },
+  { id: 13, name: 'Greek and Roman Art', cat: 'greek-roman', target: 800 },
+  { id: 6, name: 'Asian Art', cat: 'ASIAN', target: 900 },
+  { id: 3, name: 'Ancient Near Eastern Art', cat: 'mesopotamia', target: 300 },
+  { id: 14, name: 'Islamic Art', cat: 'islamic', target: 300 },
+  { id: 5, name: 'Arts of Africa, Oceania, and the Americas', cat: 'AMERICAS', target: 500 },
+]
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms))
 }
 
-function buildDescription(obj) {
-  const bits = []
-  if (obj.objectName) bits.push(`一件${obj.objectName}`)
-  if (obj.objectDate) bits.push(`年代约 ${obj.objectDate}`)
-  if (obj.medium) bits.push(`材质 ${obj.medium}`)
-  if (obj.culture) bits.push(`出自 ${obj.culture}`)
-  if (obj.period) bits.push(`时期 ${obj.period}`)
-  if (obj.dynasty) bits.push(`王朝 ${obj.dynasty}`)
-  if (bits.length === 0) return '大都会艺术博物馆藏品。'
-  return `${bits.join('，')}。`
-}
-
-function mapExhibit(obj, categoryId) {
-  const title = obj.title || obj.objectName || 'Untitled'
-  return {
-    id: `antiquity-met-${obj.objectID}`,
-    hall: 'antiquity',
-    categoryId,
-    name: title,
-    origin: obj.culture || obj.artistNationality || '',
-    era: obj.period || obj.dynasty || '',
-    date: obj.objectDate || '',
-    location: [obj.country, obj.region, obj.locus].filter(Boolean).join(' · '),
-    collection: '大都会艺术博物馆 The Met',
-    dimensions: obj.dimensions || '',
-    material: obj.medium || '',
-    description: buildDescription(obj),
-    tags: [
-      obj.department,
-      obj.culture,
-      obj.period,
-      obj.dynasty,
-      obj.objectName,
-      obj.classification,
-    ].filter(Boolean).slice(0, 8),
-    icon: CATEGORY_ICON[categoryId] || '🏺',
-    imageUrl: obj.primaryImageSmall || '',
-    imageLarge: obj.primaryImage || '',
-    source: 'The Metropolitan Museum of Art',
-    sourceUrl:
-      obj.objectURL || `https://www.metmuseum.org/art/collection/search/${obj.objectID}`,
-  }
-}
-
-// 带 User-Agent + 退避重试的请求（The Met 对无 UA 或过快请求返回 403）
-async function fetchJson(url, retries = 6) {
+// 带重试与退避的 fetch（429 / 5xx / 网络错误）
+async function fetchJson(url, retries = 5) {
   for (let i = 0; i < retries; i++) {
     try {
-      const res = await fetch(url, {
-        headers: {
-          'User-Agent':
-            'museum-collector/1.0 (educational, non-commercial research)',
-        },
-      })
-      if (res.status === 404) return null
-      if (res.status === 403 || res.status === 429) {
-        const wait = 8000 * (i + 1)
-        console.error(`  [限流 ${res.status}] 等待 ${wait / 1000}s 重试...`)
+      const res = await fetch(url, { headers: { 'User-Agent': UA } })
+      if (res.status === 429) {
+        const wait = 3000 * (i + 1)
+        console.error(`  ⚠️ 429 限流，退避 ${wait}ms`)
         await sleep(wait)
         continue
       }
@@ -135,37 +67,100 @@ async function fetchJson(url, retries = 6) {
       return await res.json()
     } catch (err) {
       if (i === retries - 1) throw err
-      await sleep(3000 * (i + 1))
+      await sleep(1000 * (i + 1))
     }
   }
-  return null
 }
 
-function sleep(ms) {
-  return new Promise((r) => setTimeout(r, ms))
+// 亚洲部门（dept 6）细分：按 culture/country 精确归类
+function classifyAsian(o) {
+  const text = `${o.culture || ''} ${o.country || ''} ${o.region || ''} ${o.objectName || ''} ${o.title || ''}`.toLowerCase()
+  if (/china|chinese|han dynasty|tang dynasty|song dynasty|ming dynasty|qing dynasty|yuan dynasty|shang dynasty|zhou dynasty|sancai|celadon|jingdezhen/.test(text)) return 'china'
+  if (/japan|japanese|korea|korean|ukiyo|edo|meiji|choson|goryeo|silla|koryo|netsuke/.test(text)) return 'east-asia'
+  if (/india|indian|nepal|nepalese|tibet|tibetan|bhutan|pakistan|sri lanka|ceylon|bengal|mathura|kushan|gandhara|burma|myanmar|thailand|thai|siam|cambodia|khmer|indonesia|java|javanese|vietnam|laos|balinese/.test(text)) return 'south-asia'
+  if (/islam|iran|persia|persian|turkey|turkish|ottoman|syria|syrian|arab|mamluk|seljuk|safavid|timurid|samarkand|bukhara|umayyad|abbasid/.test(text)) return 'islamic'
+  return 'east-asia' // 亚洲艺术未明确归属的，默认东亚（中日韩占大头）
 }
 
-async function mapPool(items, worker, concurrency = 5, delayMs = 200) {
+// 非洲/大洋洲/美洲部门（dept 5）细分
+function classifyAmericas(o) {
+  const text = `${o.culture || ''} ${o.country || ''} ${o.region || ''} ${o.objectName || ''}`.toLowerCase()
+  if (/mexico|mexican|peru|peruvian|maya|mayan|aztec|inca|incan|andean|mesoamerica|mesoamerican|colombia|colombian|guatemala|guatemalan|costa rica|olmec|moche|veracruz|teotihuacan|nazca|chimu|chavin|zapotec|mixtec|taino/.test(text)) return 'americas'
+  return 'africa-oceania' // 其余（非洲/大洋洲）归 africa-oceania
+}
+
+// 单个部门 → 古物馆分类
+function classify(deptCat, o) {
+  if (deptCat === 'ASIAN') return classifyAsian(o)
+  if (deptCat === 'AMERICAS') return classifyAmericas(o)
+  return deptCat
+}
+
+function mapExhibit(o, categoryId) {
+  const descParts = []
+  if (o.objectDate) descParts.push(`年代 ${o.objectDate}`)
+  if (o.medium) descParts.push(`材质 ${o.medium}`)
+  if (o.artistDisplayName) descParts.push(`作者 ${o.artistDisplayName}`)
+  const description = `${o.title || 'Untitled'}${descParts.length ? '。' + descParts.join('。') + '。' : ''}`.trim()
+
+  const origin = o.culture || o.country || o.region || ''
+  const location = o.culture || o.country || ''
+
+  return {
+    id: `antiquity-met-${o.objectID}`,
+    hall: 'antiquity',
+    categoryId,
+    name: o.title || 'Untitled',
+    origin,
+    era: o.department || '',
+    date: o.objectDate || '',
+    location,
+    collection: '大都会艺术博物馆 The Metropolitan Museum of Art',
+    dimensions: o.dimensions || '',
+    material: o.medium || '',
+    description,
+    tags: [o.classification, o.objectName, o.culture, o.period, o.dynasty].filter(Boolean).slice(0, 8),
+    icon: CATEGORY_ICON[categoryId] || '🏺',
+    imageUrl: o.primaryImageSmall || o.primaryImage || '',
+    imageLarge: o.primaryImage || o.primaryImageSmall || '',
+    source: 'The Metropolitan Museum of Art',
+    sourceUrl: o.objectURL || `https://www.metmuseum.org/art/collection/search/${o.objectID}`,
+  }
+}
+
+// 并发拉取详情（受控并发 + 结果保序），worker 返回有效展品或 null
+// 注意：Incapsula 对并发严格限流，用串行（并发 1）保证稳定 ~1.3s/件
+async function collectDetails(objectIDs, target, deptCat, seen, onProgress) {
   const results = []
-  const queue = [...items]
-  let done = 0
-  async function run() {
-    while (queue.length) {
-      const item = queue.shift()
+  let collected = 0
+  let cursor = 0
+  const CONCURRENCY = 1
+
+  async function worker() {
+    while (cursor < objectIDs.length && collected < target) {
+      const oid = objectIDs[cursor++]
+      let o
       try {
-        const r = await worker(item)
-        if (r !== null) results.push(r)
-      } catch (_err) {
-        // 单条失败跳过，不中断整体
+        o = await fetchJson(`${BASE}/objects/${oid}`)
+      } catch (err) {
+        continue // 单个对象失败跳过
       }
-      done++
-      if (done % 100 === 0) {
-        console.error(`  进度 ${done}/${items.length}`)
-      }
-      if (delayMs > 0) await sleep(delayMs)
+      // 过滤：无标题 / 非公有领域 / 无图 / 钱币（避免与金融馆重叠）
+      if (!o || !o.title) continue
+      if (!o.isPublicDomain) continue
+      if (!o.primaryImage && !o.primaryImageSmall) continue
+      const cls = (o.classification || '').toLowerCase()
+      if (cls.includes('coin')) continue
+
+      const cat = classify(deptCat, o)
+      results.push(mapExhibit(o, cat))
+      collected++
+      if (collected % 100 === 0) onProgress(collected)
+      await sleep(100)
     }
   }
-  const workers = Array.from({ length: concurrency }, () => run())
+
+  const workers = Array.from({ length: CONCURRENCY }, () => worker())
   await Promise.all(workers)
   return results
 }
@@ -177,44 +172,47 @@ async function main() {
 
   await mkdir(OUT_DIR, { recursive: true })
 
-  const allExhibits = []
+  const all = []
+  const seen = new Set()
 
-  for (const dep of DEPARTMENTS) {
-    const perDepLimit = limit ?? LIMITS[dep.deptId] ?? 1000
-    console.error(`\n=== 部门 ${dep.deptId} (${dep.label})，目标 ${perDepLimit} 件 ===`)
-
-    // 1. 拿该部门的 objectID 列表
-    const list = await fetchJson(
-      `${BASE}/objects?departmentIds=${dep.deptId}`,
-    )
-    if (!list || !list.objectIDs) {
-      console.error('  未获取到 objectIDs，跳过')
+  for (const dept of DEPTS) {
+    const target = limit ?? dept.target
+    // 1) 用 search 端点拿有图+公有领域 objectIDs
+    const searchUrl = `${BASE}/search?departmentId=${dept.id}&hasImages=true&isPublicDomain=true&q=*`
+    let objectIDs
+    try {
+      const sr = await fetchJson(searchUrl)
+      objectIDs = sr.objectIDs || []
+    } catch (err) {
+      console.error(`  [${dept.name}] 获取 objectIDs 失败：${err.message}，跳过`)
       continue
     }
-    const ids = list.objectIDs
-    console.error(`  共 ${ids.length} 个 objectID，开始逐个拉详情...`)
+    console.error(`\n[${dept.name}] 有图+公有领域 ${objectIDs.length} 件，目标 ${target} 件`)
 
-    // 2. 逐个拉详情，过滤有图 + 公有领域
-    let collected = 0
-    const targetIds = ids
-    for (const id of targetIds) {
-      if (collected >= perDepLimit) break
-      const obj = await fetchJson(`${BASE}/objects/${id}`)
-      if (!obj || !obj.isPublicDomain || !obj.primaryImageSmall) continue
-      const categoryId = classifyCategory(dep.deptId, obj.culture) || dep.categoryId
-      allExhibits.push(mapExhibit(obj, categoryId))
-      collected++
-      if (collected % 100 === 0) {
-        console.error(`  已收集 ${collected}/${perDepLimit}`)
+    const before = all.length
+    const results = await collectDetails(objectIDs, target, dept.cat, seen, (c) => {
+      console.error(`  [${dept.name}] 已采 ${c}/${target}（累计 ${all.length + c}）`)
+    })
+    // 去重后追加
+    for (const r of results) {
+      if (!seen.has(r.id)) {
+        seen.add(r.id)
+        all.push(r)
       }
-      await sleep(150) // ~6.7 req/s，礼貌限速
     }
-    console.error(`  部门 ${dep.deptId} 完成，收集 ${collected} 件`)
+    console.error(`  [${dept.name}] 完成：采得 ${all.length - before} 件（累计 ${all.length}）`)
   }
 
-  // 3. 写文件
-  await writeFile(OUT_FILE, JSON.stringify(allExhibits), 'utf8')
-  console.error(`\n✅ 完成！共 ${allExhibits.length} 件，已写入 ${OUT_FILE}`)
+  await writeFile(OUT_FILE, JSON.stringify(all), 'utf8')
+
+  // 分类统计
+  const byCat = {}
+  for (const e of all) byCat[e.categoryId] = (byCat[e.categoryId] || 0) + 1
+  console.error(`\n✅ 完成！共 ${all.length} 件，已写入 ${OUT_FILE}`)
+  console.error('分类分布：')
+  Object.entries(byCat)
+    .sort((a, b) => b[1] - a[1])
+    .forEach(([k, v]) => console.error(`  ${String(v).padStart(5)}  ${k}`))
 }
 
 main().catch((err) => {

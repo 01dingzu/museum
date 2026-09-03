@@ -43,8 +43,11 @@ export const halls: Hall[] = [
       { id: 'power-machinery', name: '动力与机械', description: '内燃机与工业母机', icon: '⚙️' },
       { id: 'transport', name: '交通', description: '汽车、机车与飞行', icon: '🚂' },
       { id: 'communication', name: '通信与信息', description: '电报、电话与无线电', icon: '📡' },
-      { id: 'energy-electric', name: '能源与电气', description: '发电机、电灯与电磁', icon: '⚡' },
+      { id: 'energy-electric', name: '能源与电气', description: '发电机、电池与电灯', icon: '⚡' },
       { id: 'computing-space', name: '计算机与航天', description: '电子计算与太空时代', icon: '🚀' },
+      { id: 'robotics', name: '机器人', description: '工业机器人、服务机器人与机械臂', icon: '🤖' },
+      { id: 'timekeeping', name: '钟表计时', description: '时钟、怀表与计时仪器', icon: '🕰️' },
+      { id: 'optics', name: '光学仪器', description: '望远镜、显微镜与相机', icon: '🔭' },
     ],
   },
   {
@@ -87,6 +90,46 @@ export const halls: Hall[] = [
       { id: 'medals-orders', name: '勋章与奖章', description: '荣誉勋章与纪念奖章', icon: '🏅' },
       { id: 'commemorative', name: '纪念币与金币', description: '纪念币、金银币与特种铸币', icon: '🎖️' },
       { id: 'financial-tools', name: '金融工具', description: '算盘、天平、收银机与储钱', icon: '⚖️' },
+    ],
+  },
+  {
+    id: 'art',
+    name: '美术馆',
+    subtitle: '人类审美的千年画廊',
+    description:
+      '从文艺复兴的油画到现代雕塑，从素描手稿到版画与摄影，收录世界绘画、雕塑与图像艺术的经典之作。',
+    theme: {
+      primary: '#7b2d8b',
+      secondary: '#d8a7e0',
+      gradient: 'linear-gradient(135deg, #f7eefb 0%, #ecd7f2 100%)',
+      accent: '#5b1f68',
+    },
+    categories: [
+      { id: 'painting', name: '绘画', description: '油画、壁画与水彩名作', icon: '🎨' },
+      { id: 'sculpture', name: '雕塑', description: '石雕、青铜与装置艺术', icon: '🗿' },
+      { id: 'drawing', name: '素描', description: '素描、速写与手稿', icon: '✏️' },
+      { id: 'print', name: '版画', description: '木刻、铜版与石版画', icon: '🖼️' },
+      { id: 'photograph', name: '摄影', description: '纪实、人像与艺术摄影', icon: '📷' },
+    ],
+  },
+  {
+    id: 'music',
+    name: '音乐乐器馆',
+    subtitle: '人类发声与旋律的载体',
+    description:
+      '从弦乐到键盘，从木管到铜管，从打击乐到世界各民族乐器，收录人类音乐史上用于演奏与表达的所有乐器。',
+    theme: {
+      primary: '#1f4e79',
+      secondary: '#7fb3d5',
+      gradient: 'linear-gradient(135deg, #eaf2fa 0%, #d3e4f2 100%)',
+      accent: '#153d5c',
+    },
+    categories: [
+      { id: 'string', name: '弦乐器', description: '小提琴、大提琴与拨弦乐器', icon: '🎻' },
+      { id: 'keyboard', name: '键盘乐器', description: '钢琴、管风琴与电子键盘', icon: '🎹' },
+      { id: 'woodwind', name: '木管乐器', description: '长笛、单簧管与双簧管', icon: '🪈' },
+      { id: 'brass', name: '铜管乐器', description: '小号、圆号与长号', icon: '🎺' },
+      { id: 'percussion', name: '打击乐器', description: '鼓、钹与木琴', icon: '🥁' },
     ],
   },
 ]
