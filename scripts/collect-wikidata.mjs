@@ -1,0 +1,239 @@
+// collect-wikidata.mjs — 采集维基数据（Wikidata）自然史/科技条目（免 key）
+// 用法：
+//   node scripts/collect-wikidata.mjs --hall nature [--limit N]   # 自然科学馆
+//   node scripts/collect-wikidata.mjs --hall industry [--limit N] # 工业科学馆
+//
+// 数据源：https://query.wikidata.org/sparql （CC0 结构化数据 + Wikimedia Commons 图片）
+// 输出：public/data/{hall}.json
+//
+// 注意：Wikidata 查询用「小分类单元」避免传递闭包超时（动物界/植物界整体会 60s 超时）。
+
+import { writeFile, mkdir } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const OUT_DIR = path.join(__dirname, '..', 'public', 'data')
+const SPARQL = 'https://query.wikidata.org/sparql'
+const UA = 'museum-collector/1.0 (educational, non-commercial research)'
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms))
+}
+
+function imageUrl(raw, width) {
+  if (!raw) return ''
+  let url = raw.startsWith('http') ? raw.replace(/^http:/, 'https:') : `https://commons.wikimedia.org/wiki/Special:FilePath/${raw}`
+  return `${url}?width=${width}`
+}
+
+// 类别名 → 一组查询（每条一个 where + limit）
+const NATURE = {
+  paleontology: {
+    icon: '🦖',
+    queries: [
+      { where: '?item wdt:P171* wd:Q430 . ?item wdt:P105 wd:Q7432 .', limit: 800 }, // 恐龙种
+      { where: '?item wdt:P171* wd:Q36715 . ?item wdt:P18 ?image0 .', limit: 120 }, // 猛犸/史前象
+    ],
+  },
+  'minerals-gems': {
+    icon: '💎',
+    queries: [{ where: '?item wdt:P279* wd:Q7946 .', limit: 600 }], // 矿物（子类）
+  },
+  meteorites: {
+    icon: '☄️',
+    queries: [{ where: '?item wdt:P31 wd:Q60186 .', limit: 300 }], // 陨石
+  },
+  botany: {
+    icon: '🌿',
+    queries: [
+      { where: '?item wdt:P171* wd:Q25308 . ?item wdt:P105 wd:Q7432 .', limit: 400 }, // 兰科
+      { where: '?item wdt:P171* wd:Q14560 . ?item wdt:P105 wd:Q7432 .', limit: 200 }, // 仙人掌科
+      { where: '?item wdt:P171* wd:Q34687 . ?item wdt:P105 wd:Q7432 .', limit: 200 }, // 蔷薇科
+    ],
+  },
+  zoology: {
+    icon: '🦋',
+    queries: [
+      { where: '?item wdt:P171* wd:Q7377 . ?item wdt:P105 wd:Q7432 .', limit: 700 }, // 哺乳动物
+      { where: '?item wdt:P171* wd:Q5113 . ?item wdt:P105 wd:Q7432 .', limit: 700 }, // 鸟类
+      { where: '?item wdt:P171* wd:Q10811 . ?item wdt:P105 wd:Q7432 .', limit: 400 }, // 爬行动物
+      { where: '?item wdt:P171* wd:Q152 . ?item wdt:P105 wd:Q7432 .', limit: 400 }, // 鱼类
+    ],
+  },
+  anthropology: {
+    icon: '🦴',
+    queries: [
+      { where: '?item wdt:P171* wd:Q171283 . ?item wdt:P18 ?image0 .', limit: 60 }, // 人属 Homo
+      { where: '?item wdt:P171* wd:Q103237 . ?item wdt:P18 ?image0 .', limit: 60 }, // 南方古猿属 Australopithecus
+    ],
+  },
+}
+
+const INDUSTRY = {
+  'industrial-revolution': {
+    icon: '🏭',
+    queries: [{ where: '?item wdt:P31/wdt:P279* wd:Q12760 .', limit: 250 }], // 蒸汽机
+  },
+  'power-machinery': {
+    icon: '⚙️',
+    queries: [{ where: '?item wdt:P31/wdt:P279* wd:Q44167 .', limit: 400 }], // 发动机
+  },
+  transport: {
+    icon: '🚂',
+    queries: [
+      { where: '?item wdt:P31/wdt:P279* wd:Q1420 .', limit: 300 }, // 汽车
+      { where: '?item wdt:P31/wdt:P279* wd:Q11436 .', limit: 250 }, // 飞机
+      { where: '?item wdt:P31/wdt:P279* wd:Q11446 .', limit: 200 }, // 船舶
+      { where: '?item wdt:P31/wdt:P279* wd:Q870 .', limit: 200 }, // 火车
+    ],
+  },
+  communication: {
+    icon: '📡',
+    queries: [
+      { where: '?item wdt:P31/wdt:P279* wd:Q11035 .', limit: 150 }, // 电话
+      { where: '?item wdt:P31/wdt:P279* wd:Q159391 .', limit: 150 }, // 无线电接收机
+    ],
+  },
+  'energy-electric': {
+    icon: '⚡',
+    queries: [
+      { where: '?item wdt:P31/wdt:P279* wd:Q72313 .', limit: 200 }, // 电动机
+      { where: '?item wdt:P31/wdt:P279* wd:Q47616 .', limit: 150 }, // 白炽灯
+    ],
+  },
+  'computing-space': {
+    icon: '🚀',
+    queries: [
+      { where: '?item wdt:P31/wdt:P279* wd:Q40218 .', limit: 300 }, // 航天器
+      { where: '?item wdt:P31/wdt:P279* wd:Q68 .', limit: 300 }, // 计算机
+    ],
+  },
+}
+
+const HALL_CFG = {
+  nature: { cats: NATURE, collection: '维基数据 / Wikimedia Commons', source: 'Wikidata' },
+  industry: { cats: INDUSTRY, collection: '维基数据 / Wikimedia Commons', source: 'Wikidata' },
+}
+
+function buildSparql(where, limit) {
+  // where 里可能已含 image 约束（?image0 占位），统一处理：每条必须绑定 ?image
+  const w = where.replace(/ \?image0 \./g, ' ?image .')
+  return `SELECT DISTINCT ?item ?itemLabel ?itemDescription ?image WHERE {
+${w}${w.includes('?image') ? '' : '  ?item wdt:P18 ?image .'}
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "zh,en". }
+} LIMIT ${limit}`
+}
+
+async function runSparql(sparql, retries = 4) {
+  const url = `${SPARQL}?query=${encodeURIComponent(sparql)}&format=json`
+  for (let i = 0; i < retries; i++) {
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/sparql-results+json' } })
+      if (res.status === 429 || res.status === 502 || res.status === 503) {
+        await sleep(2000 * (i + 1))
+        continue
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      // Wikidata 偶发在字符串字面量里返回未转义的控制字符（非法 JSON），先清理再解析
+      const text = await res.text()
+      const cleaned = text.replace(/[\u0000-\u001f]/g, ' ')
+      const j = JSON.parse(cleaned)
+      return j.results?.bindings || []
+    } catch (err) {
+      if (i === retries - 1) throw err
+      await sleep(1500 * (i + 1))
+    }
+  }
+  throw new Error('重试耗尽')
+}
+
+function bv(b) {
+  return b?.value || ''
+}
+
+function mapRow(b, categoryId, hall, cfg) {
+  const label = bv(b.itemLabel) || 'Untitled'
+  const desc = bv(b.itemDescription)
+  const itemId = bv(b.item).split('/').filter(Boolean).pop() || ''
+  const small = imageUrl(bv(b.image), 843)
+  const large = imageUrl(bv(b.image), 1686)
+
+  return {
+    id: `${hall}-wiki-${itemId}`,
+    hall,
+    categoryId,
+    name: label,
+    origin: '',
+    era: '',
+    date: '',
+    location: '',
+    collection: cfg.collection,
+    dimensions: '',
+    material: '',
+    description: desc ? `${label}。${desc}。` : label,
+    tags: desc ? [desc] : [],
+    icon: cfg.cats[categoryId]?.icon || '🏛️',
+    imageUrl: small,
+    imageLarge: large,
+    source: cfg.source,
+    sourceUrl: itemId ? `https://www.wikidata.org/wiki/${itemId}` : '',
+  }
+}
+
+function parseArgs() {
+  const args = process.argv.slice(2)
+  const out = { hall: null, limit: null }
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === '--hall') out.hall = args[++i]
+    else if (args[i] === '--limit') out.limit = parseInt(args[++i], 10)
+  }
+  return out
+}
+
+async function main() {
+  const { hall, limit } = parseArgs()
+  if (!hall || !HALL_CFG[hall]) {
+    console.error('用法：node scripts/collect-wikidata.mjs --hall nature|industry [--limit N]')
+    process.exit(1)
+  }
+  const cfg = HALL_CFG[hall]
+  const OUT_FILE = path.join(OUT_DIR, `${hall}.json`)
+  await mkdir(OUT_DIR, { recursive: true })
+
+  const seen = new Set()
+  const all = []
+
+  for (const [categoryId, cat] of Object.entries(cfg.cats)) {
+    for (const q of cat.queries) {
+      const lim = limit ?? q.limit
+      const sparql = buildSparql(q.where, lim)
+      let rows
+      try {
+        rows = await runSparql(sparql)
+      } catch (err) {
+        console.error(`  [${categoryId}] 查询失败：${err.message}，跳过该子查询`)
+        await sleep(800)
+        continue
+      }
+      let added = 0
+      for (const b of rows) {
+        const itemId = bv(b.item).split('/').filter(Boolean).pop()
+        if (seen.has(itemId)) continue
+        seen.add(itemId)
+        all.push(mapRow(b, categoryId, hall, cfg))
+        added++
+      }
+      console.error(`  [${categoryId}] ${q.where.slice(0, 30)}… → +${added}（累计 ${all.length}）`)
+      await sleep(1200) // 礼貌限速，避免 Wikidata 限流
+    }
+  }
+
+  await writeFile(OUT_FILE, JSON.stringify(all), 'utf8')
+  console.error(`\n✅ 完成！${hall} 共 ${all.length} 件，已写入 ${OUT_FILE}`)
+}
+
+main().catch((err) => {
+  console.error('采集失败：', err)
+  process.exit(1)
+})

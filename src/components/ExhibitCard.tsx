@@ -13,6 +13,12 @@ export default function ExhibitCard({ exhibit, hall, onOpen }: Props) {
   const favorite = isFavorite
 
   const category = hall.categories.find((c) => c.id === exhibit.categoryId)
+  // 采集类展品（origin/date 为空）时，退而展示描述或来源
+  const meta =
+    [exhibit.origin, exhibit.date].filter(Boolean).join(' · ') ||
+    exhibit.tags?.[0] ||
+    exhibit.collection ||
+    ''
 
   return (
     <div className="card" onClick={() => onOpen(exhibit.id)}>
@@ -21,7 +27,12 @@ export default function ExhibitCard({ exhibit, hall, onOpen }: Props) {
         style={{ background: hall.theme.gradient }}
       >
         {exhibit.imageUrl ? (
-          <img src={exhibit.imageUrl} alt={exhibit.name} />
+          <img
+            src={exhibit.imageUrl}
+            alt={exhibit.name}
+            loading="lazy"
+            decoding="async"
+          />
         ) : (
           <span>{exhibit.icon}</span>
         )}
@@ -39,12 +50,18 @@ export default function ExhibitCard({ exhibit, hall, onOpen }: Props) {
       </button>
       <div className="card-body">
         <div className="card-name">{exhibit.name}</div>
-        <div className="card-meta">
-          {exhibit.origin} · {exhibit.date}
-        </div>
+        <div className="card-meta">{meta}</div>
         <div className="card-tag-row">
           {category && (
-            <span className={`tag ${hall.id === 'industry' ? 'steel' : ''}`}>
+            <span
+              className={`tag ${
+                hall.id === 'industry'
+                  ? 'steel'
+                  : hall.id === 'nature'
+                    ? 'nature'
+                    : ''
+              }`}
+            >
               {category.icon} {category.name}
             </span>
           )}

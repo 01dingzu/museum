@@ -1,7 +1,7 @@
 // 展品与展馆的类型定义
 
-// 展馆：古物馆 / 工业科学馆
-export type HallId = 'antiquity' | 'industry'
+// 展馆：古物馆 / 工业科学馆 / 自然科学馆
+export type HallId = 'antiquity' | 'industry' | 'nature'
 
 export interface Hall {
   id: HallId
@@ -53,6 +53,12 @@ export interface Exhibit {
   icon: string
   // 可选外部图片 URL（用户添加时可用）
   imageUrl?: string
+  // 详情页大图（爬取数据提供更高分辨率）
+  imageLarge?: string
+  // 数据来源机构（如「大都会艺术博物馆」）
+  source?: string
+  // 展品原页面链接（标注出处）
+  sourceUrl?: string
   // 是否为用户自定义展品
   custom?: boolean
 }

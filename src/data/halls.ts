@@ -1,6 +1,6 @@
 import type { Hall } from '../types'
 
-// 两大展馆定义
+// 三大展馆定义
 export const halls: Hall[] = [
   {
     id: 'antiquity',
@@ -19,8 +19,11 @@ export const halls: Hall[] = [
       { id: 'mesopotamia', name: '两河流域', description: '苏美尔、巴比伦与楔形文字', icon: '🏺' },
       { id: 'greek-roman', name: '古希腊罗马', description: '哲学、艺术与古典雕塑', icon: '🏛️' },
       { id: 'china', name: '中国文物', description: '青铜、陶俑与千年文明', icon: '🐉' },
-      { id: 'americas', name: '美洲古文明', description: '玛雅、阿兹特克与印加', icon: '🗿' },
       { id: 'south-asia', name: '南亚与印度河', description: '印度河流域与孔雀王朝', icon: '🦁' },
+      { id: 'americas', name: '美洲古文明', description: '玛雅、阿兹特克与印加', icon: '🗿' },
+      { id: 'islamic', name: '伊斯兰与中东', description: '波斯、阿拉伯与伊斯兰艺术', icon: '🕌' },
+      { id: 'east-asia', name: '东亚与东南亚', description: '日本、朝鲜与东南亚文明', icon: '⛩️' },
+      { id: 'africa-oceania', name: '非洲与大洋洲', description: '撒哈拉以南与太平洋岛民', icon: '🪘' },
     ],
   },
   {
@@ -42,6 +45,27 @@ export const halls: Hall[] = [
       { id: 'communication', name: '通信与信息', description: '电报、电话与无线电', icon: '📡' },
       { id: 'energy-electric', name: '能源与电气', description: '发电机、电灯与电磁', icon: '⚡' },
       { id: 'computing-space', name: '计算机与航天', description: '电子计算与太空时代', icon: '🚀' },
+    ],
+  },
+  {
+    id: 'nature',
+    name: '自然科学馆',
+    subtitle: '地球与生命的亿万年纪录',
+    description:
+      '从恐龙化石到珍稀矿物，从陨石到动植物标本，收录地球 46 亿年演化与生命多样性的实证。',
+    theme: {
+      primary: '#2d6a4f',
+      secondary: '#95d5b2',
+      gradient: 'linear-gradient(135deg, #edf7f0 0%, #d8f3dc 100%)',
+      accent: '#1b4332',
+    },
+    categories: [
+      { id: 'paleontology', name: '古生物与恐龙', description: '恐龙、化石与远古生命', icon: '🦖' },
+      { id: 'minerals-gems', name: '矿物与宝石', description: '晶体、宝石与岩石', icon: '💎' },
+      { id: 'meteorites', name: '陨石与宇宙', description: '陨石、太空岩石与行星科学', icon: '☄️' },
+      { id: 'botany', name: '植物标本', description: '植物、菌类与藻类', icon: '🌿' },
+      { id: 'zoology', name: '动物标本', description: '哺乳动物、鸟类与昆虫', icon: '🦋' },
+      { id: 'anthropology', name: '人类起源', description: '人类学与史前文明', icon: '🦴' },
     ],
   },
 ]

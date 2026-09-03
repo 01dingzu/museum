@@ -360,6 +360,11 @@ select {
   color: var(--steel);
 }
 
+.tag.nature {
+  background: #e0f2e9;
+  color: #2d6a4f;
+}
+
 .card-custom-badge {
   position: absolute;
   top: 10px;
@@ -496,6 +501,47 @@ select {
   margin-bottom: 12px;
 }
 
+/* 加载态与无限滚动 */
+.loading-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.loading-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.load-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.load-more .loading-spinner {
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
 /* ===== 详情页 ===== */
 .detail-wrap {
   max-width: 900px;
@@ -608,6 +654,33 @@ select {
   display: flex;
   gap: 12px;
   margin-top: 22px;
+}
+
+.detail-source {
+  margin-top: 18px;
+  padding: 12px 16px;
+  background: #faf6ef;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.detail-source-label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.detail-source a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.detail-source a:hover {
+  text-decoration: underline;
 }
 
 .detail-actions button {
