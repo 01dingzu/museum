@@ -1,0 +1,302 @@
+{
+  "rosetta-stone": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta_Stone_-_front_face_-_corrected_image.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta_Stone_-_front_face_-_corrected_image.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone_-_front_face_-_corrected_image.jpg"
+  },
+  "tutankhamun-mask": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Wikimedia_2016_-21_(cropped).jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Wikimedia_2016_-21_(cropped).jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wikimedia_2016_-21_(cropped).jpg"
+  },
+  "nefertiti-bust": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Nofretete_Neues_Museum.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Nofretete_Neues_Museum.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nofretete_Neues_Museum.jpg"
+  },
+  "code-of-hammurabi": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg"
+  },
+  "standard-of-ur": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Denis_Bourez_-_British_Museum%2C_London_(8747049029)_(2).jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Denis_Bourez_-_British_Museum%2C_London_(8747049029)_(2).jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Denis_Bourez_-_British_Museum%2C_London_(8747049029)_(2).jpg"
+  },
+  "ishtar-gate": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ishtar_Gate_at_Berlin_Museum.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Ishtar_Gate_at_Berlin_Museum.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishtar_Gate_at_Berlin_Museum.jpg"
+  },
+  "parthenon-marbles": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Elgin_Marbles_British_Museum.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Elgin_Marbles_British_Museum.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elgin_Marbles_British_Museum.jpg"
+  },
+  "venus-de-milo": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg"
+  },
+  "winged-victory": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg"
+  },
+  "terracotta-army": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Terracotta_Army%2C_View_of_Pit_1.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Terracotta_Army%2C_View_of_Pit_1.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terracotta_Army%2C_View_of_Pit_1.jpg"
+  },
+  "houmuwu-ding": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/HouMuWuDingFullView.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/HouMuWuDingFullView.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HouMuWuDingFullView.jpg"
+  },
+  "yuewang-goujian-sword": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/20230208_Bronze_sword_used_by_King_Goujian_of_Yue_01.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/20230208_Bronze_sword_used_by_King_Goujian_of_Yue_01.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20230208_Bronze_sword_used_by_King_Goujian_of_Yue_01.jpg"
+  },
+  "aztec-sun-stone": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Aztec_sun_stone_-_National_Museum_of_Antropology_-_Mexico_2024.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Aztec_sun_stone_-_National_Museum_of_Antropology_-_Mexico_2024.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aztec_sun_stone_-_National_Museum_of_Antropology_-_Mexico_2024.jpg"
+  },
+  "moai-hoa-hakananaia": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Angled_View_of_the_Hoa_Hakananai'a_Statue.JPG?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Angled_View_of_the_Hoa_Hakananai'a_Statue.JPG?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angled_View_of_the_Hoa_Hakananai'a_Statue.JPG"
+  },
+  "ashoka-pillar": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sarnath_capital.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Sarnath_capital.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sarnath_capital.jpg"
+  },
+  "spinning-jenny": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Spinning_jenny.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Spinning_jenny.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spinning_jenny.jpg"
+  },
+  "watt-steam-engine": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Maquina_vapor_Watt_ETSIIM.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Maquina_vapor_Watt_ETSIIM.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maquina_vapor_Watt_ETSIIM.jpg"
+  },
+  "rocket-locomotive": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Stephenson_Rocket_at_the_National_Railway_Museum_York_Oct25_04.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Stephenson_Rocket_at_the_National_Railway_Museum_York_Oct25_04.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stephenson_Rocket_at_the_National_Railway_Museum_York_Oct25_04.jpg"
+  },
+  "otto-engine": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Otto_four-stroke-cycle_internal_combustion_engine.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Otto_four-stroke-cycle_internal_combustion_engine.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otto_four-stroke-cycle_internal_combustion_engine.jpg"
+  },
+  "benz-patent-motorwagen": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Patent-Motorwagen_Nr.1_Benz_2.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Patent-Motorwagen_Nr.1_Benz_2.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patent-Motorwagen_Nr.1_Benz_2.jpg"
+  },
+  "ford-model-t": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_T_Jon_Sullivan.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_T_Jon_Sullivan.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ford_T_Jon_Sullivan.jpg"
+  },
+  "bell-telephone": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Bell_%22iron_box%22_telephone_receiver_1876.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Bell_%22iron_box%22_telephone_receiver_1876.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bell_%22iron_box%22_telephone_receiver_1876.jpg"
+  },
+  "edison-phonograph": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Edison_phonograph-CnAM_18732-IMG_5309-gradient.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Edison_phonograph-CnAM_18732-IMG_5309-gradient.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edison_phonograph-CnAM_18732-IMG_5309-gradient.jpg"
+  },
+  "edison-light-bulb": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Thomas_Edison_Lightbulbs_1879-1880.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Thomas_Edison_Lightbulbs_1879-1880.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Edison_Lightbulbs_1879-1880.jpg"
+  },
+  "tesla-coil": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Nikola_Tesla_Smiljan_16.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Nikola_Tesla_Smiljan_16.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nikola_Tesla_Smiljan_16.jpg"
+  },
+  "sputnik-1": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sputnik.jpg"
+  },
+  "eniac": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Two_women_operating_ENIAC_(full_resolution).jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Two_women_operating_ENIAC_(full_resolution).jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_women_operating_ENIAC_(full_resolution).jpg"
+  },
+  "apollo-guidance-computer": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Agc_view.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Agc_view.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Agc_view.jpg"
+  },
+  "hope-diamond": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Hope_Diamond.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Hope_Diamond.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hope_Diamond.jpg"
+  },
+  "sue-trex": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sues_skeleton.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Sues_skeleton.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sues_skeleton.jpg"
+  },
+  "lucy-australopithecus": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Reconstruction_of_the_fossil_skeleton_of_%22Lucy%22_the_Australopithecus_afarensis.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Reconstruction_of_the_fossil_skeleton_of_%22Lucy%22_the_Australopithecus_afarensis.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_the_fossil_skeleton_of_%22Lucy%22_the_Australopithecus_afarensis.jpg"
+  },
+  "allende-meteorite": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/AllendeMeteorite.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/AllendeMeteorite.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AllendeMeteorite.jpg"
+  },
+  "blue-whale": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Anim1755_-_Flickr_-_NOAA_Photo_Library.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Anim1755_-_Flickr_-_NOAA_Photo_Library.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anim1755_-_Flickr_-_NOAA_Photo_Library.jpg"
+  },
+  "titanosaur-patagotitan": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/AMNHTitanosaur.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/AMNHTitanosaur.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AMNHTitanosaur.jpg"
+  },
+  "peking-man": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sinathropus_pekinensis.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Sinathropus_pekinensis.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sinathropus_pekinensis.jpg"
+  },
+  "megalodon-tooth": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/VMNH_megalodon.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/VMNH_megalodon.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:VMNH_megalodon.jpg"
+  },
+  "wollemi-pine": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/WollemiaNobilisPineKiefer.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/WollemiaNobilisPineKiefer.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:WollemiaNobilisPineKiefer.jpg"
+  },
+  "sanxingdui-mask": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sichuan_Ancient_Cultural_Relics_02.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Sichuan_Ancient_Cultural_Relics_02.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sichuan_Ancient_Cultural_Relics_02.jpg"
+  },
+  "pakal-jade-mask": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Jademaya.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Jademaya.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jademaya.jpg"
+  },
+  "nataraja-shiva": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva_as_Lord_of_the_Dance_(Nataraja).jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva_as_Lord_of_the_Dance_(Nataraja).jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shiva_as_Lord_of_the_Dance_(Nataraja).jpg"
+  },
+  "priest-king": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Mohenjo-daro_Priesterk%C3%B6nig.jpeg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Mohenjo-daro_Priesterk%C3%B6nig.jpeg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mohenjo-daro_Priesterk%C3%B6nig.jpeg"
+  },
+  "bessemer-converter": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Bessemer_converter.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Bessemer_converter.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bessemer_converter.jpg"
+  },
+  "wright-flyer": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/First_flight2.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/First_flight2.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:First_flight2.jpg"
+  },
+  "morse-telegraph": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Morse_Telegraph_1837.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Morse_Telegraph_1837.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Morse_Telegraph_1837.jpg"
+  },
+  "marconi-radio": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Quenched_spark_transmitter_-_Nauen_Radio_Station%2C_Nauen_Germany_1921.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Quenched_spark_transmitter_-_Nauen_Radio_Station%2C_Nauen_Germany_1921.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Quenched_spark_transmitter_-_Nauen_Radio_Station%2C_Nauen_Germany_1921.jpg"
+  },
+  "faraday-generator": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Faraday_disk_-_National_Museum_of_Nature_and_Science%2C_Tokyo_-_DSC07366.JPG?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Faraday_disk_-_National_Museum_of_Nature_and_Science%2C_Tokyo_-_DSC07366.JPG?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Faraday_disk_-_National_Museum_of_Nature_and_Science%2C_Tokyo_-_DSC07366.JPG"
+  },
+  "ibm-pc": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/IBM_PC_5150.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/IBM_PC_5150.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:IBM_PC_5150.jpg"
+  },
+  "general-sherman-tree": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/United_States_-_California_-_Sequoia_National_Park_-_General_Sherman_Tree_-_Panorama.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/United_States_-_California_-_Sequoia_National_Park_-_General_Sherman_Tree_-_Panorama.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:United_States_-_California_-_Sequoia_National_Park_-_General_Sherman_Tree_-_Panorama.jpg"
+  },
+  "dodo-bird": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Oxford_Dodo_display.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Oxford_Dodo_display.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oxford_Dodo_display.jpg"
+  },
+  "star-of-india-sapphire": {
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Star_of_India_Gem.JPG?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Star_of_India_Gem.JPG?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Star_of_India_Gem.JPG"
+  }
+}

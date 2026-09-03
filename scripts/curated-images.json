@@ -1,0 +1,519 @@
+{
+  "rosetta-stone": {
+    "id": "rosetta-stone",
+    "term": "Rosetta Stone",
+    "qid": "Q48584",
+    "label": "Rosetta Stone",
+    "status": "ok",
+    "commonsFile": "Rosetta Stone - front face - corrected image.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta_Stone_-_front_face_-_corrected_image.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta_Stone_-_front_face_-_corrected_image.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone_-_front_face_-_corrected_image.jpg"
+  },
+  "tutankhamun-mask": {
+    "id": "tutankhamun-mask",
+    "term": "Mask of Tutankhamun",
+    "qid": "Q9048095",
+    "label": "mask of Tutankhamun",
+    "status": "ok",
+    "commonsFile": "Wikimedia 2016 -21 (cropped).jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Wikimedia_2016_-21_(cropped).jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Wikimedia_2016_-21_(cropped).jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wikimedia_2016_-21_(cropped).jpg"
+  },
+  "nefertiti-bust": {
+    "id": "nefertiti-bust",
+    "term": "Nefertiti Bust",
+    "qid": "Q582172",
+    "label": "Bust of Queen Nefertiti",
+    "status": "ok",
+    "commonsFile": "Nofretete Neues Museum.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Nofretete_Neues_Museum.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Nofretete_Neues_Museum.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nofretete_Neues_Museum.jpg"
+  },
+  "code-of-hammurabi": {
+    "id": "code-of-hammurabi",
+    "term": "Code of Hammurabi",
+    "qid": "Q93304",
+    "label": "Code of Hammurabi",
+    "status": "ok",
+    "commonsFile": "P1050763 Louvre code Hammurabi face rwk-gradient.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg"
+  },
+  "standard-of-ur": {
+    "id": "standard-of-ur",
+    "term": "Standard of Ur",
+    "qid": "Q524447",
+    "label": "Standard of Ur",
+    "status": "ok",
+    "commonsFile": "Denis Bourez - British Museum, London (8747049029) (2).jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Denis_Bourez_-_British_Museum%2C_London_(8747049029)_(2).jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Denis_Bourez_-_British_Museum%2C_London_(8747049029)_(2).jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Denis_Bourez_-_British_Museum%2C_London_(8747049029)_(2).jpg"
+  },
+  "ishtar-gate": {
+    "id": "ishtar-gate",
+    "term": "Ishtar Gate",
+    "qid": "Q26082",
+    "label": "Ishtar Gate",
+    "status": "ok",
+    "commonsFile": "Ishtar Gate at Berlin Museum.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ishtar_Gate_at_Berlin_Museum.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Ishtar_Gate_at_Berlin_Museum.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishtar_Gate_at_Berlin_Museum.jpg"
+  },
+  "parthenon-marbles": {
+    "id": "parthenon-marbles",
+    "term": "Elgin Marbles",
+    "qid": "Q606662",
+    "label": "Elgin Marbles",
+    "status": "ok",
+    "commonsFile": "Elgin Marbles British Museum.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Elgin_Marbles_British_Museum.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Elgin_Marbles_British_Museum.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elgin_Marbles_British_Museum.jpg"
+  },
+  "venus-de-milo": {
+    "id": "venus-de-milo",
+    "term": "Venus de Milo",
+    "qid": "Q151952",
+    "label": "Venus de Milo",
+    "status": "ok",
+    "commonsFile": "Vénus de Milo - Musée du Louvre AGER LL 299 ; N 527 ; Ma 399.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg"
+  },
+  "winged-victory": {
+    "id": "winged-victory",
+    "term": "Winged Victory of Samothrace",
+    "qid": "Q216402",
+    "label": "Winged Victory of Samothrace",
+    "status": "ok",
+    "commonsFile": "Victoire de Samothrace - Musee du Louvre - 20190812.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg"
+  },
+  "terracotta-army": {
+    "id": "terracotta-army",
+    "term": "Terracotta Army",
+    "qid": "Q47672",
+    "label": "Terracotta Army",
+    "status": "ok",
+    "commonsFile": "Terracotta Army, View of Pit 1.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Terracotta_Army%2C_View_of_Pit_1.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Terracotta_Army%2C_View_of_Pit_1.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terracotta_Army%2C_View_of_Pit_1.jpg"
+  },
+  "houmuwu-ding": {
+    "id": "houmuwu-ding",
+    "term": "Houmuwu ding",
+    "qid": "Q10917916",
+    "label": "Houmuwu ding",
+    "status": "ok",
+    "commonsFile": "HouMuWuDingFullView.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/HouMuWuDingFullView.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/HouMuWuDingFullView.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HouMuWuDingFullView.jpg"
+  },
+  "yuewang-goujian-sword": {
+    "id": "yuewang-goujian-sword",
+    "term": "Sword of Goujian",
+    "qid": "Q836117",
+    "label": "Sword of Goujian",
+    "status": "ok",
+    "commonsFile": "20230208 Bronze sword used by King Goujian of Yue 01.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/20230208_Bronze_sword_used_by_King_Goujian_of_Yue_01.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/20230208_Bronze_sword_used_by_King_Goujian_of_Yue_01.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20230208_Bronze_sword_used_by_King_Goujian_of_Yue_01.jpg"
+  },
+  "sanxingdui-mask": {
+    "id": "sanxingdui-mask",
+    "term": "Sanxingdui bronze heads",
+    "status": "no-hit"
+  },
+  "aztec-sun-stone": {
+    "id": "aztec-sun-stone",
+    "term": "Aztec sun stone",
+    "qid": "Q786806",
+    "label": "Aztec sun stone",
+    "status": "ok",
+    "commonsFile": "Piedra del Sol.tif",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Piedra_del_Sol.tif?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Piedra_del_Sol.tif?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piedra_del_Sol.tif"
+  },
+  "pakal-jade-mask": {
+    "id": "pakal-jade-mask",
+    "term": "Mask of K'inich Janaab' Pakal",
+    "status": "no-hit"
+  },
+  "moai-hoa-hakananaia": {
+    "id": "moai-hoa-hakananaia",
+    "term": "Hoa Hakananai'a",
+    "qid": "Q2040958",
+    "label": "Hoa Hakananai'a",
+    "status": "ok",
+    "commonsFile": "Angled View of the Hoa Hakananai'a Statue.JPG",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Angled_View_of_the_Hoa_Hakananai'a_Statue.JPG?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Angled_View_of_the_Hoa_Hakananai'a_Statue.JPG?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angled_View_of_the_Hoa_Hakananai'a_Statue.JPG"
+  },
+  "ashoka-pillar": {
+    "id": "ashoka-pillar",
+    "term": "Lion Capital of Ashoka",
+    "qid": "Q3595955",
+    "label": "Lion Capital of Asoka",
+    "status": "ok",
+    "commonsFile": "Sarnath capital.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sarnath_capital.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Sarnath_capital.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sarnath_capital.jpg"
+  },
+  "nataraja-shiva": {
+    "id": "nataraja-shiva",
+    "term": "Nataraja",
+    "qid": "Q545244",
+    "label": "Nataraja",
+    "status": "no-image"
+  },
+  "priest-king": {
+    "id": "priest-king",
+    "term": "Priest-king (sculpture)",
+    "status": "no-hit"
+  },
+  "spinning-jenny": {
+    "id": "spinning-jenny",
+    "term": "Spinning jenny",
+    "qid": "Q49015",
+    "label": "spinning jenny",
+    "status": "ok",
+    "commonsFile": "Lieven Bauwens en de Mule Jenny.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Lieven_Bauwens_en_de_Mule_Jenny.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Lieven_Bauwens_en_de_Mule_Jenny.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lieven_Bauwens_en_de_Mule_Jenny.jpg"
+  },
+  "watt-steam-engine": {
+    "id": "watt-steam-engine",
+    "term": "Watt steam engine",
+    "qid": "Q3099902",
+    "label": "Watt steam engine",
+    "status": "ok",
+    "commonsFile": "Maquina vapor Watt ETSIIM.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Maquina_vapor_Watt_ETSIIM.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Maquina_vapor_Watt_ETSIIM.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maquina_vapor_Watt_ETSIIM.jpg"
+  },
+  "rocket-locomotive": {
+    "id": "rocket-locomotive",
+    "term": "Stephenson's Rocket",
+    "qid": "Q777026",
+    "label": "Stephenson's Rocket",
+    "status": "ok",
+    "commonsFile": "Stephenson's Rocket drawing.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Stephenson's_Rocket_drawing.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Stephenson's_Rocket_drawing.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stephenson's_Rocket_drawing.jpg"
+  },
+  "bessemer-converter": {
+    "id": "bessemer-converter",
+    "term": "Bessemer converter",
+    "status": "no-hit"
+  },
+  "otto-engine": {
+    "id": "otto-engine",
+    "term": "Otto engine",
+    "qid": "Q3507866",
+    "label": "Otto engine",
+    "status": "ok",
+    "commonsFile": "Enginy Otto-langen 1867.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Enginy_Otto-langen_1867.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Enginy_Otto-langen_1867.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enginy_Otto-langen_1867.jpg"
+  },
+  "benz-patent-motorwagen": {
+    "id": "benz-patent-motorwagen",
+    "term": "Benz Patent-Motorwagen",
+    "qid": "Q326248",
+    "label": "Benz Patent-Motorwagen",
+    "status": "ok",
+    "commonsFile": "Patent-Motorwagen Nr.1 Benz 2.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Patent-Motorwagen_Nr.1_Benz_2.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Patent-Motorwagen_Nr.1_Benz_2.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patent-Motorwagen_Nr.1_Benz_2.jpg"
+  },
+  "ford-model-t": {
+    "id": "ford-model-t",
+    "term": "Ford Model T",
+    "qid": "Q182323",
+    "label": "Ford Model T",
+    "status": "ok",
+    "commonsFile": "Ford T Jon Sullivan.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_T_Jon_Sullivan.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Ford_T_Jon_Sullivan.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ford_T_Jon_Sullivan.jpg"
+  },
+  "wright-flyer": {
+    "id": "wright-flyer",
+    "term": "Wright Flyer",
+    "qid": "Q113164444",
+    "label": "Flyer",
+    "status": "no-image"
+  },
+  "morse-telegraph": {
+    "id": "morse-telegraph",
+    "term": "Morse key",
+    "qid": "Q1156388",
+    "label": "telegraph key",
+    "status": "no-image"
+  },
+  "bell-telephone": {
+    "id": "bell-telephone",
+    "term": "Bell telephone",
+    "qid": "Q217365",
+    "label": "Bell Labs",
+    "status": "ok",
+    "commonsFile": "Lucent HQ.gif",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Lucent_HQ.gif?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Lucent_HQ.gif?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lucent_HQ.gif"
+  },
+  "edison-phonograph": {
+    "id": "edison-phonograph",
+    "term": "Edison phonograph",
+    "qid": "Q54935152",
+    "label": "Edison phonograph - CnAM 18732",
+    "status": "ok",
+    "commonsFile": "Edison phonograph-CnAM 18732-IMG 5309-gradient.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Edison_phonograph-CnAM_18732-IMG_5309-gradient.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Edison_phonograph-CnAM_18732-IMG_5309-gradient.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edison_phonograph-CnAM_18732-IMG_5309-gradient.jpg"
+  },
+  "marconi-radio": {
+    "id": "marconi-radio",
+    "term": "Marconi's wireless telegraph apparatus",
+    "status": "no-hit"
+  },
+  "faraday-generator": {
+    "id": "faraday-generator",
+    "term": "Faraday disk",
+    "status": "no-hit"
+  },
+  "edison-light-bulb": {
+    "id": "edison-light-bulb",
+    "term": "Incandescent light bulb",
+    "qid": "Q47616",
+    "label": "incandescent light bulb",
+    "status": "ok",
+    "commonsFile": "Gluehlampe 01 KMJ.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gluehlampe_01_KMJ.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Gluehlampe_01_KMJ.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gluehlampe_01_KMJ.jpg"
+  },
+  "tesla-coil": {
+    "id": "tesla-coil",
+    "term": "Tesla coil",
+    "qid": "Q622424",
+    "label": "Tesla coil",
+    "status": "ok",
+    "commonsFile": "Nikola Tesla Smiljan 16.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Nikola_Tesla_Smiljan_16.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Nikola_Tesla_Smiljan_16.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nikola_Tesla_Smiljan_16.jpg"
+  },
+  "sputnik-1": {
+    "id": "sputnik-1",
+    "term": "Sputnik 1",
+    "qid": "Q80811",
+    "label": "Sputnik 1",
+    "status": "ok",
+    "commonsFile": "Sputnik.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sputnik.jpg"
+  },
+  "eniac": {
+    "id": "eniac",
+    "term": "ENIAC",
+    "qid": "Q169399",
+    "label": "ENIAC",
+    "status": "ok",
+    "commonsFile": "Two women operating ENIAC (full resolution).jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Two_women_operating_ENIAC_(full_resolution).jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Two_women_operating_ENIAC_(full_resolution).jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_women_operating_ENIAC_(full_resolution).jpg"
+  },
+  "apollo-guidance-computer": {
+    "id": "apollo-guidance-computer",
+    "term": "Apollo Guidance Computer",
+    "qid": "Q138875",
+    "label": "Apollo Guidance Computer",
+    "status": "ok",
+    "commonsFile": "Agc view.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Agc_view.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Agc_view.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Agc_view.jpg"
+  },
+  "ibm-pc": {
+    "id": "ibm-pc",
+    "term": "IBM Personal Computer 5150",
+    "status": "no-hit"
+  },
+  "hope-diamond": {
+    "id": "hope-diamond",
+    "term": "Hope Diamond",
+    "qid": "Q640037",
+    "label": "Hope Diamond",
+    "status": "ok",
+    "commonsFile": "Hope Diamond.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Hope_Diamond.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Hope_Diamond.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hope_Diamond.jpg"
+  },
+  "sue-trex": {
+    "id": "sue-trex",
+    "term": "Sue (dinosaur)",
+    "qid": "Q1514294",
+    "label": "Sue",
+    "status": "ok",
+    "commonsFile": "Sues skeleton.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sues_skeleton.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Sues_skeleton.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sues_skeleton.jpg"
+  },
+  "lucy-australopithecus": {
+    "id": "lucy-australopithecus",
+    "term": "Lucy (Australopithecus)",
+    "qid": "Q245388",
+    "label": "Lucy",
+    "status": "ok",
+    "commonsFile": "Reconstruction of the fossil skeleton of \"Lucy\" the Australopithecus afarensis.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Reconstruction_of_the_fossil_skeleton_of_%22Lucy%22_the_Australopithecus_afarensis.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Reconstruction_of_the_fossil_skeleton_of_%22Lucy%22_the_Australopithecus_afarensis.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reconstruction_of_the_fossil_skeleton_of_%22Lucy%22_the_Australopithecus_afarensis.jpg"
+  },
+  "allende-meteorite": {
+    "id": "allende-meteorite",
+    "term": "Allende meteorite",
+    "qid": "Q1930079",
+    "label": "Allende meteorite",
+    "status": "ok",
+    "commonsFile": "AllendeMeteorite.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/AllendeMeteorite.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/AllendeMeteorite.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AllendeMeteorite.jpg"
+  },
+  "general-sherman-tree": {
+    "id": "general-sherman-tree",
+    "term": "General Sherman (tree)",
+    "status": "no-hit"
+  },
+  "dodo-bird": {
+    "id": "dodo-bird",
+    "term": "Dodo",
+    "qid": "Q19968507",
+    "label": "Dodo",
+    "status": "no-image"
+  },
+  "blue-whale": {
+    "id": "blue-whale",
+    "term": "Blue whale",
+    "qid": "Q42196",
+    "label": "Balaenoptera musculus",
+    "status": "ok",
+    "commonsFile": "Anim1755 - Flickr - NOAA Photo Library.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Anim1755_-_Flickr_-_NOAA_Photo_Library.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Anim1755_-_Flickr_-_NOAA_Photo_Library.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anim1755_-_Flickr_-_NOAA_Photo_Library.jpg"
+  },
+  "titanosaur-patagotitan": {
+    "id": "titanosaur-patagotitan",
+    "term": "Patagotitan",
+    "qid": "Q17103736",
+    "label": "Patagotitan",
+    "status": "ok",
+    "commonsFile": "AMNHTitanosaur.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/AMNHTitanosaur.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/AMNHTitanosaur.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AMNHTitanosaur.jpg"
+  },
+  "star-of-india-sapphire": {
+    "id": "star-of-india-sapphire",
+    "term": "Star of India (gem)",
+    "status": "no-hit"
+  },
+  "peking-man": {
+    "id": "peking-man",
+    "term": "Peking Man",
+    "qid": "Q45931",
+    "label": "Peking Man",
+    "status": "ok",
+    "commonsFile": "Sinathropus pekinensis.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sinathropus_pekinensis.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Sinathropus_pekinensis.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sinathropus_pekinensis.jpg"
+  },
+  "megalodon-tooth": {
+    "id": "megalodon-tooth",
+    "term": "Megalodon",
+    "qid": "Q163873",
+    "label": "megalodon",
+    "status": "ok",
+    "commonsFile": "VMNH megalodon.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/VMNH_megalodon.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/VMNH_megalodon.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:VMNH_megalodon.jpg"
+  },
+  "wollemi-pine": {
+    "id": "wollemi-pine",
+    "term": "Wollemia",
+    "qid": "Q12981878",
+    "label": "Wollemia",
+    "status": "ok",
+    "commonsFile": "WollemiaNobilisPineKiefer.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/WollemiaNobilisPineKiefer.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/WollemiaNobilisPineKiefer.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:WollemiaNobilisPineKiefer.jpg"
+  }
+}

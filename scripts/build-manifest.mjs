@@ -27,11 +27,23 @@ async function extractCurated() {
   return ctx.__result
 }
 
-// 2. 为策展展品补馆前缀 id
-function prefixCurated(exhibit) {
+// 2. 为策展展品补馆前缀 id，并注入实拍图（来自 curated-images-map.json）
+function prefixCurated(exhibit, imageMap) {
+  const img = imageMap[exhibit.id]
   return {
     ...exhibit,
+    ...(img || {}),
     id: `${exhibit.hall}-curated-${exhibit.id}`,
+  }
+}
+
+// 读取策展展品实拍图映射（可选，不存在则退回 emoji 占位）
+async function loadImageMap() {
+  try {
+    const raw = await readFile(path.join(__dirname, 'curated-images-map.json'), 'utf8')
+    return JSON.parse(raw)
+  } catch (_e) {
+    return {}
   }
 }
 
@@ -58,12 +70,13 @@ function pickFeatured(curated, scraped, count = 12) {
 async function main() {
   await mkdir(DATA_DIR, { recursive: true })
   const curated = await extractCurated()
-  console.error(`策展展品：${curated.length} 件`)
+  const imageMap = await loadImageMap()
+  console.error(`策展展品：${curated.length} 件（实拍图 ${Object.keys(imageMap).length} 件）`)
 
   const manifest = {}
 
   for (const hall of HALLS) {
-    const curatedOfHall = curated.filter((e) => e.hall === hall).map(prefixCurated)
+    const curatedOfHall = curated.filter((e) => e.hall === hall).map((e) => prefixCurated(e, imageMap))
 
     // 读取爬取数据（可能不存在）
     let scraped = []
