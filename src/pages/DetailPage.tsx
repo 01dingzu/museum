@@ -17,11 +17,13 @@ export default function DetailPage({ exhibitId }: Props) {
 
   const [exhibit, setExhibit] = useState<Exhibit | null>(null)
   const [loading, setLoading] = useState(true)
+  const [imgError, setImgError] = useState(false)
 
   useEffect(() => {
     let alive = true
     setLoading(true)
     setExhibit(null)
+    setImgError(false)
     findExhibit(exhibitId)
       .then((e) => {
         if (alive) setExhibit(e || null)
@@ -93,8 +95,13 @@ export default function DetailPage({ exhibitId }: Props) {
           className="detail-hero"
           style={{ background: hall.theme.gradient }}
         >
-          {image ? (
-            <img src={image} alt={exhibit.name} loading="lazy" />
+          {image && !imgError ? (
+            <img
+              src={image}
+              alt={exhibit.name}
+              loading="lazy"
+              onError={() => setImgError(true)}
+            />
           ) : (
             <span>{exhibit.icon}</span>
           )}

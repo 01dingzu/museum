@@ -1,7 +1,8 @@
-// collect-wikidata.mjs — 采集维基数据（Wikidata）自然史/科技条目（免 key）
+// collect-wikidata.mjs — 采集维基数据（Wikidata）自然史/科技/金融条目（免 key）
 // 用法：
 //   node scripts/collect-wikidata.mjs --hall nature [--limit N]   # 自然科学馆
 //   node scripts/collect-wikidata.mjs --hall industry [--limit N] # 工业科学馆
+//   node scripts/collect-wikidata.mjs --hall finance [--limit N]  # 金融博物馆
 //
 // 数据源：https://query.wikidata.org/sparql （CC0 结构化数据 + Wikimedia Commons 图片）
 // 输出：public/data/{hall}.json
@@ -111,9 +112,52 @@ const INDUSTRY = {
   },
 }
 
+const FINANCE = {
+  'ancient-coins': {
+    icon: '🪙',
+    queries: [
+      { where: '?item wdt:P31 wd:Q41207 .', limit: 500 }, // 硬币（实例）
+      { where: '?item wdt:P31/wdt:P279* wd:Q41207 .', limit: 500 }, // 硬币（子类）
+    ],
+  },
+  currency: {
+    icon: '💰',
+    queries: [{ where: '?item wdt:P31 wd:Q8142 .', limit: 500 }], // 货币/通货
+  },
+  banknotes: {
+    icon: '💵',
+    queries: [{ where: '?item wdt:P31/wdt:P279* wd:Q47433 .', limit: 300 }], // 纸币
+  },
+  'medals-orders': {
+    icon: '🏅',
+    queries: [
+      { where: '?item wdt:P31/wdt:P279* wd:Q193622 .', limit: 500 }, // 勋章
+      { where: '?item wdt:P31/wdt:P279* wd:Q131647 .', limit: 500 }, // 奖章
+    ],
+  },
+  commemorative: {
+    icon: '🎖️',
+    queries: [
+      { where: '?item wdt:P31/wdt:P279* wd:Q855973 .', limit: 400 }, // 纪念币
+      { where: '?item wdt:P31/wdt:P279* wd:Q860641 .', limit: 150 }, // 金币
+      { where: '?item wdt:P31/wdt:P279* wd:Q610038 .', limit: 100 }, // 银币
+    ],
+  },
+  'financial-tools': {
+    icon: '⚖️',
+    queries: [
+      { where: '?item wdt:P31/wdt:P279* wd:Q12806 .', limit: 50 }, // 算盘
+      { where: '?item wdt:P31/wdt:P279* wd:Q134566 .', limit: 100 }, // 秤
+      { where: '?item wdt:P31/wdt:P279* wd:Q235041 .', limit: 50 }, // 收银机
+      { where: '?item wdt:P31/wdt:P279* wd:Q221994 .', limit: 50 }, // 存钱罐
+    ],
+  },
+}
+
 const HALL_CFG = {
   nature: { cats: NATURE, collection: '维基数据 / Wikimedia Commons', source: 'Wikidata' },
   industry: { cats: INDUSTRY, collection: '维基数据 / Wikimedia Commons', source: 'Wikidata' },
+  finance: { cats: FINANCE, collection: '维基数据 / Wikimedia Commons', source: 'Wikidata' },
 }
 
 function buildSparql(where, limit) {
@@ -194,7 +238,7 @@ function parseArgs() {
 async function main() {
   const { hall, limit } = parseArgs()
   if (!hall || !HALL_CFG[hall]) {
-    console.error('用法：node scripts/collect-wikidata.mjs --hall nature|industry [--limit N]')
+    console.error('用法：node scripts/collect-wikidata.mjs --hall nature|industry|finance [--limit N]')
     process.exit(1)
   }
   const cfg = HALL_CFG[hall]

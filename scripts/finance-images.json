@@ -1,0 +1,117 @@
+{
+  "lydian-lion": {
+    "id": "lydian-lion",
+    "term": "Lydian coin",
+    "qid": "Q5867540",
+    "label": "history of coins",
+    "status": "ok",
+    "commonsFile": "Indian Double-Die Ancient Coin.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Indian_Double-Die_Ancient_Coin.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Indian_Double-Die_Ancient_Coin.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Indian_Double-Die_Ancient_Coin.jpg"
+  },
+  "athens-owl-tetradrachm": {
+    "id": "athens-owl-tetradrachm",
+    "term": "Athenian tetradrachm",
+    "qid": "Q57477326",
+    "label": "Athenian tetradrachms recently discovered in the Athenian Agora",
+    "status": "no-image"
+  },
+  "spanish-real-eight": {
+    "id": "spanish-real-eight",
+    "term": "Spanish dollar",
+    "qid": "Q15039722",
+    "label": "Spanish dollar",
+    "status": "ok",
+    "commonsFile": "Ocho reales de plata 1759 (reverso).jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ocho_reales_de_plata_1759_(reverso).jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Ocho_reales_de_plata_1759_(reverso).jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ocho_reales_de_plata_1759_(reverso).jpg"
+  },
+  "maria-theresa-thaler": {
+    "id": "maria-theresa-thaler",
+    "term": "Maria Theresa thaler",
+    "qid": "Q661169",
+    "label": "Maria Theresa thaler",
+    "status": "ok",
+    "commonsFile": "Tallero di Maria Teresa.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Tallero_di_Maria_Teresa.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Tallero_di_Maria_Teresa.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tallero_di_Maria_Teresa.jpg"
+  },
+  "jiaozi-note": {
+    "id": "jiaozi-note",
+    "term": "Jiaozi (currency)",
+    "status": "no-hit"
+  },
+  "da-ming-baochao": {
+    "id": "da-ming-baochao",
+    "term": "Ming dynasty banknote",
+    "qid": "Q131480527",
+    "label": "Ming dynasty banknote",
+    "status": "no-image"
+  },
+  "legion-of-honor": {
+    "id": "legion-of-honor",
+    "term": "Legion of Honour",
+    "qid": "Q163700",
+    "label": "Legion of Honour",
+    "status": "ok",
+    "commonsFile": "Grand Croix Ordre Légion d'Honneur Troisième République AEA Collections.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Grand_Croix_Ordre_L%C3%A9gion_d'Honneur_Troisi%C3%A8me_R%C3%A9publique_AEA_Collections.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Grand_Croix_Ordre_L%C3%A9gion_d'Honneur_Troisi%C3%A8me_R%C3%A9publique_AEA_Collections.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_Croix_Ordre_L%C3%A9gion_d'Honneur_Troisi%C3%A8me_R%C3%A9publique_AEA_Collections.jpg"
+  },
+  "krugerrand": {
+    "id": "krugerrand",
+    "term": "Krugerrand",
+    "qid": "Q1057164",
+    "label": "Krugerrand",
+    "status": "ok",
+    "commonsFile": "1 oz Krugerrand 2017 Bildseite.png",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/1_oz_Krugerrand_2017_Bildseite.png?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/1_oz_Krugerrand_2017_Bildseite.png?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:1_oz_Krugerrand_2017_Bildseite.png"
+  },
+  "saint-gaudens-double-eagle": {
+    "id": "saint-gaudens-double-eagle",
+    "term": "Saint-Gaudens double eagle",
+    "qid": "Q930649",
+    "label": "Saint-Gaudens double eagle",
+    "status": "ok",
+    "commonsFile": "1912 double eagle obv.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/1912_double_eagle_obv.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/1912_double_eagle_obv.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:1912_double_eagle_obv.jpg"
+  },
+  "abacus": {
+    "id": "abacus",
+    "term": "Suanpan",
+    "qid": "Q12806",
+    "label": "abacus",
+    "status": "ok",
+    "commonsFile": "Kulram.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Kulram.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Kulram.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kulram.jpg"
+  },
+  "balance-scale": {
+    "id": "balance-scale",
+    "term": "Balance scale",
+    "qid": "Q805082",
+    "label": "beam balance",
+    "status": "ok",
+    "commonsFile": "Akan MHNT.ETH.2010.25.009.jpg",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Akan_MHNT.ETH.2010.25.009.jpg?width=800",
+    "imageLarge": "https://commons.wikimedia.org/wiki/Special:FilePath/Akan_MHNT.ETH.2010.25.009.jpg?width=1600",
+    "source": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akan_MHNT.ETH.2010.25.009.jpg"
+  }
+}

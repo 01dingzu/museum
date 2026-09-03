@@ -1,7 +1,7 @@
 // 展品与展馆的类型定义
 
-// 展馆：古物馆 / 工业科学馆 / 自然科学馆
-export type HallId = 'antiquity' | 'industry' | 'nature'
+// 展馆：古物馆 / 工业科学馆 / 自然科学馆 / 金融博物馆
+export type HallId = 'antiquity' | 'industry' | 'nature' | 'finance'
 
 export interface Hall {
   id: HallId

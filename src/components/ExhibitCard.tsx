@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Exhibit, Hall } from '../types'
 import { useMuseumStore } from '../store/museumStore'
 
@@ -8,6 +9,7 @@ interface Props {
 }
 
 export default function ExhibitCard({ exhibit, hall, onOpen }: Props) {
+  const [imgError, setImgError] = useState(false)
   const isFavorite = useMuseumStore((s) => s.isFavorite(exhibit.id))
   const toggleFavorite = useMuseumStore((s) => s.toggleFavorite)
   const favorite = isFavorite
@@ -26,12 +28,13 @@ export default function ExhibitCard({ exhibit, hall, onOpen }: Props) {
         className="card-visual"
         style={{ background: hall.theme.gradient }}
       >
-        {exhibit.imageUrl ? (
+        {exhibit.imageUrl && !imgError ? (
           <img
             src={exhibit.imageUrl}
             alt={exhibit.name}
             loading="lazy"
             decoding="async"
+            onError={() => setImgError(true)}
           />
         ) : (
           <span>{exhibit.icon}</span>

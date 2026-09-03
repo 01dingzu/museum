@@ -17,6 +17,12 @@ const OVERRIDES = {
   'morse-telegraph': 'Morse Telegraph 1837.jpg',
   'otto-engine': 'Otto four-stroke-cycle internal combustion engine.jpg',
   'edison-light-bulb': 'Thomas Edison Lightbulbs 1879-1880.jpg',
+  // 金融馆：P18 匹配失败/非实拍 → 手工指定 Commons 实拍图
+  'athens-owl-tetradrachm': 'Athens - 454-404 BC - silver tetradrachm - head of Athena - owl - München SMS.jpg',
+  'victoria-cross': 'Victoria Cross and medal group of Arthur Kilby at the Lord Ashcroft Gallery, Imperial War Museum, London, June 2023.jpg',
+  'da-ming-baochao': 'British Museum Ming banknote.jpg',
+  'jiaozi-note': 'Jiao zi.jpg',
+  'lydian-lion': 'Electrum trite, Alyattes, Lydia, 620-563 BC.jpg',
 }
 
 function commonsUrl(file, width) {
@@ -36,6 +42,12 @@ function toEntry(file) {
 async function main() {
   const round1 = JSON.parse(await readFile(path.join(__dirname, 'curated-images.json'), 'utf8'))
   const round2 = JSON.parse(await readFile(path.join(__dirname, 'curated-images-2.json'), 'utf8'))
+  let financeRound = {}
+  try {
+    financeRound = JSON.parse(await readFile(path.join(__dirname, 'finance-images.json'), 'utf8'))
+  } catch (_e) {
+    console.error('（finance-images.json 不存在，跳过金融馆图片）')
+  }
 
   const map = {}
 
@@ -45,6 +57,10 @@ async function main() {
   }
   // 第二轮覆盖/补充
   for (const [id, r] of Object.entries(round2)) {
+    if (r.status === 'ok' && r.commonsFile) map[id] = toEntry(r.commonsFile)
+  }
+  // 金融馆（Wikidata P18 匹配）
+  for (const [id, r] of Object.entries(financeRound)) {
     if (r.status === 'ok' && r.commonsFile) map[id] = toEntry(r.commonsFile)
   }
   // 人工修正
@@ -62,9 +78,11 @@ async function main() {
     'bell-telephone', 'edison-phonograph', 'marconi-radio', 'faraday-generator', 'edison-light-bulb', 'tesla-coil',
     'sputnik-1', 'eniac', 'apollo-guidance-computer', 'ibm-pc', 'hope-diamond', 'sue-trex', 'lucy-australopithecus',
     'allende-meteorite', 'general-sherman-tree', 'dodo-bird', 'blue-whale', 'titanosaur-patagotitan',
-    'star-of-india-sapphire', 'peking-man', 'megalodon-tooth', 'wollemi-pine'].filter((id) => !map[id])
+    'star-of-india-sapphire', 'peking-man', 'megalodon-tooth', 'wollemi-pine', 'lydian-lion',
+    'athens-owl-tetradrachm', 'spanish-real-eight', 'maria-theresa-thaler', 'jiaozi-note', 'da-ming-baochao',
+    'legion-of-honor', 'victoria-cross', 'krugerrand', 'saint-gaudens-double-eagle', 'abacus', 'balance-scale'].filter((id) => !map[id])
   if (missing.length) console.log('缺图：', missing)
-  else console.log('50 件全部有图 ✓')
+  else console.log(`${Object.keys(map).length} 件全部有图 ✓`)
 }
 
 main().catch((err) => {

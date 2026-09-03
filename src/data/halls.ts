@@ -68,6 +68,27 @@ export const halls: Hall[] = [
       { id: 'anthropology', name: '人类起源', description: '人类学与史前文明', icon: '🦴' },
     ],
   },
+  {
+    id: 'finance',
+    name: '金融博物馆',
+    subtitle: '从贝壳到数字货币的财富史',
+    description:
+      '从吕底亚第一枚金币到现代纸币，从古罗马钱币到勋章奖章，收录货币、铸币、票据与金融工具的千年演进。',
+    theme: {
+      primary: '#8a6d1d',
+      secondary: '#e0c56a',
+      gradient: 'linear-gradient(135deg, #faf3dc 0%, #f0e2a8 100%)',
+      accent: '#6b5310',
+    },
+    categories: [
+      { id: 'ancient-coins', name: '古代钱币', description: '希腊、罗马与古代文明铸币', icon: '🪙' },
+      { id: 'currency', name: '货币与铸币', description: '各国货币与流通铸币', icon: '💰' },
+      { id: 'banknotes', name: '纸币', description: '纸钞、票据与信用凭证', icon: '💵' },
+      { id: 'medals-orders', name: '勋章与奖章', description: '荣誉勋章与纪念奖章', icon: '🏅' },
+      { id: 'commemorative', name: '纪念币与金币', description: '纪念币、金银币与特种铸币', icon: '🎖️' },
+      { id: 'financial-tools', name: '金融工具', description: '算盘、天平、收银机与储钱', icon: '⚖️' },
+    ],
+  },
 ]
 
 export const hallMap: Record<string, Hall> = Object.fromEntries(
