@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b8860b"/>
+      <stop offset="100%" stop-color="#7a4f24"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="80" fill="url(#bg)"/>
+  <g fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 山墙 -->
+    <polygon points="76,196 256,72 436,196"/>
+    <!-- 额枋 -->
+    <line x1="76" y1="216" x2="436" y2="216"/>
+    <!-- 柱子 -->
+    <line x1="130" y1="232" x2="130" y2="400"/>
+    <line x1="216" y1="232" x2="216" y2="400"/>
+    <line x1="296" y1="232" x2="296" y2="400"/>
+    <line x1="382" y1="232" x2="382" y2="400"/>
+    <!-- 基座 -->
+    <line x1="60" y1="420" x2="452" y2="420"/>
+    <line x1="60" y1="442" x2="452" y2="442"/>
+  </g>
+</svg>
