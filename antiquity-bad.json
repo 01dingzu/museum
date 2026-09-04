@@ -1,0 +1,333 @@
+[
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nofretete_Neues_Museum.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20182,
+  "ids": [
+   "antiquity-curated-nefertiti-bust"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Denis_Bourez_-_British_Museum%2C_London_(8747049029)_(2).jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20181,
+  "ids": [
+   "antiquity-curated-standard-of-ur"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wikimedia_2016_-21_(cropped).jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20184,
+  "ids": [
+   "antiquity-curated-tutankhamun-mask"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Terracotta_Army%2C_View_of_Pit_1.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20173,
+  "ids": [
+   "antiquity-curated-terracotta-army"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/20230208_Bronze_sword_used_by_King_Goujian_of_Yue_01.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20173,
+  "ids": [
+   "antiquity-curated-yuewang-goujian-sword"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jademaya.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20169,
+  "ids": [
+   "antiquity-curated-pakal-jade-mask"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mohenjo-daro_Priesterk%C3%B6nig.jpeg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20167,
+  "ids": [
+   "antiquity-curated-priest-king"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Elgin_Marbles_British_Museum.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20182,
+  "ids": [
+   "antiquity-curated-parthenon-marbles"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Elgin_Marbles_British_Museum.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20185,
+  "ids": [
+   "antiquity-curated-parthenon-marbles"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mohenjo-daro_Priesterk%C3%B6nig.jpeg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20172,
+  "ids": [
+   "antiquity-curated-priest-king"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jademaya.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20175,
+  "ids": [
+   "antiquity-curated-pakal-jade-mask"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/20230208_Bronze_sword_used_by_King_Goujian_of_Yue_01.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20179,
+  "ids": [
+   "antiquity-curated-yuewang-goujian-sword"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Terracotta_Army%2C_View_of_Pit_1.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20180,
+  "ids": [
+   "antiquity-curated-terracotta-army"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wikimedia_2016_-21_(cropped).jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20192,
+  "ids": [
+   "antiquity-curated-tutankhamun-mask"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Denis_Bourez_-_British_Museum%2C_London_(8747049029)_(2).jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20189,
+  "ids": [
+   "antiquity-curated-standard-of-ur"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nofretete_Neues_Museum.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20191,
+  "ids": [
+   "antiquity-curated-nefertiti-bust"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Aztec_sun_stone_-_National_Museum_of_Antropology_-_Mexico_2024.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20185,
+  "ids": [
+   "antiquity-curated-aztec-sun-stone"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Aztec_sun_stone_-_National_Museum_of_Antropology_-_Mexico_2024.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20185,
+  "ids": [
+   "antiquity-curated-aztec-sun-stone"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta_Stone_-_front_face_-_corrected_image.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 20952,
+  "ids": [
+   "antiquity-curated-rosetta-stone"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta_Stone_-_front_face_-_corrected_image.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 20952,
+  "ids": [
+   "antiquity-curated-rosetta-stone"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Angled_View_of_the_Hoa_Hakananai'a_Statue.JPG?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 21178,
+  "ids": [
+   "antiquity-curated-moai-hoa-hakananaia"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 21189,
+  "ids": [
+   "antiquity-curated-venus-de-milo"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva_as_Lord_of_the_Dance_(Nataraja).jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 21177,
+  "ids": [
+   "antiquity-curated-nataraja-shiva"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 21186,
+  "ids": [
+   "antiquity-curated-winged-victory"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 21186,
+  "ids": [
+   "antiquity-curated-winged-victory"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva_as_Lord_of_the_Dance_(Nataraja).jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 21178,
+  "ids": [
+   "antiquity-curated-nataraja-shiva"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 21190,
+  "ids": [
+   "antiquity-curated-venus-de-milo"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Angled_View_of_the_Hoa_Hakananai'a_Statue.JPG?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 21179,
+  "ids": [
+   "antiquity-curated-moai-hoa-hakananaia"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sichuan_Ancient_Cultural_Relics_02.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 22193,
+  "ids": [
+   "antiquity-curated-sanxingdui-mask"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/HouMuWuDingFullView.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 22194,
+  "ids": [
+   "antiquity-curated-houmuwu-ding"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ishtar_Gate_at_Berlin_Museum.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 22202,
+  "ids": [
+   "antiquity-curated-ishtar-gate"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 22204,
+  "ids": [
+   "antiquity-curated-code-of-hammurabi"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/P1050763_Louvre_code_Hammurabi_face_rwk-gradient.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 22204,
+  "ids": [
+   "antiquity-curated-code-of-hammurabi"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ishtar_Gate_at_Berlin_Museum.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 22202,
+  "ids": [
+   "antiquity-curated-ishtar-gate"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/HouMuWuDingFullView.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 22194,
+  "ids": [
+   "antiquity-curated-houmuwu-ding"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sichuan_Ancient_Cultural_Relics_02.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 22194,
+  "ids": [
+   "antiquity-curated-sanxingdui-mask"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sarnath_capital.jpg?width=800",
+  "status": "TIMEOUT",
+  "elapsed": 23199,
+  "ids": [
+   "antiquity-curated-ashoka-pillar"
+  ]
+ },
+ {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sarnath_capital.jpg?width=800",
+  "status": "ERR",
+  "err": "socket hang up",
+  "elapsed": 23256,
+  "ids": [
+   "antiquity-curated-ashoka-pillar"
+  ]
+ },
+ {
+  "url": "https://images.metmuseum.org/CRDImages/eg/web-large/14.3.341b+c.bat.jpg",
+  "status": 404,
+  "elapsed": 229,
+  "ids": [
+   "antiquity-met-565784"
+  ]
+ }
+]

@@ -18,12 +18,14 @@ export default function DetailPage({ exhibitId }: Props) {
   const [exhibit, setExhibit] = useState<Exhibit | null>(null)
   const [loading, setLoading] = useState(true)
   const [imgError, setImgError] = useState(false)
+  const [imgLoaded, setImgLoaded] = useState(false)
 
   useEffect(() => {
     let alive = true
     setLoading(true)
     setExhibit(null)
     setImgError(false)
+    setImgLoaded(false)
     findExhibit(exhibitId)
       .then((e) => {
         if (alive) setExhibit(e || null)
@@ -99,11 +101,18 @@ export default function DetailPage({ exhibitId }: Props) {
             <img
               src={image}
               alt={exhibit.name}
-              loading="lazy"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              className={imgLoaded ? 'is-loaded' : 'is-loading'}
+              onLoad={() => setImgLoaded(true)}
               onError={() => setImgError(true)}
             />
           ) : (
             <span>{exhibit.icon}</span>
+          )}
+          {!imgLoaded && image && !imgError && (
+            <div className="detail-skeleton" aria-hidden="true" />
           )}
           <button
             className="detail-fav"

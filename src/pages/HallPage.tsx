@@ -158,12 +158,13 @@ export default function HallPage({ hallId }: Props) {
       ) : (
         <>
           <div className="exhibits-grid">
-            {visible.map((exhibit) => (
+            {visible.map((exhibit, idx) => (
               <ExhibitCard
                 key={exhibit.id}
                 exhibit={exhibit}
                 hall={hall}
                 onOpen={navigateDetail}
+                index={idx}
               />
             ))}
           </div>

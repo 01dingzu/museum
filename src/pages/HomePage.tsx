@@ -88,12 +88,13 @@ export default function HomePage() {
         <>
           <h3 className="section-title">精选展品</h3>
           <div className="featured-grid">
-            {featuredList.map((exhibit) => (
+            {featuredList.map((exhibit, idx) => (
               <ExhibitCard
                 key={exhibit.id}
                 exhibit={exhibit}
                 hall={halls.find((h) => h.id === exhibit.hall)!}
                 onOpen={navigateDetail}
+                index={idx}
               />
             ))}
           </div>
