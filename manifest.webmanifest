@@ -1,0 +1,20 @@
+{
+  "name": "集合世界博物馆",
+  "short_name": "博物馆",
+  "description": "汇集世界文明瑰宝与科技里程碑的线上展馆",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f7f3ea",
+  "theme_color": "#9a6a3a",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
