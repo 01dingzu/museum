@@ -11,6 +11,46 @@ interface Props {
 
 const PAGE_SIZE = 60
 
+// 首屏图加载耗时统计：监听所有 <img> 的 load/error 事件，打印到 console
+function watchFirstPaintPerf(hallId: string) {
+  if (typeof window === 'undefined') return () => {}
+  const start = performance.now()
+  const imgs = Array.from(document.images)
+  let loaded = 0
+  let failed = 0
+  const total = imgs.length
+  if (total === 0) return () => {}
+  const onDone = () => {
+    const elapsed = Math.round(performance.now() - start)
+    const resources = (performance.getEntriesByType('resource') as PerformanceResourceTiming[]).filter(
+      (r) => r.initiatorType === 'img' && /metmuseum|britishmuseum|wikimedia|galloromeinsmuseum/.test(r.name),
+    )
+    const actualBytes = resources.reduce((s, r) => s + (r.transferSize || r.encodedBodySize || 0), 0)
+    console.log(
+      `[museum perf] ${hallId} 首屏图: ${loaded}/${total} 加载完成, ${failed} 失败, 耗时 ${elapsed}ms, 传输 ~${(actualBytes / 1024).toFixed(0)}KB (${resources.length} 个图床请求)`,
+    )
+  }
+  const handler = (e: Event) => {
+    if (e.type === 'load') loaded++
+    if (e.type === 'error') failed++
+    if (loaded + failed >= total) onDone()
+  }
+  imgs.forEach((i) => {
+    if (i.complete) {
+      if (i.naturalWidth > 0) loaded++
+      else failed++
+    } else {
+      i.addEventListener('load', handler, { once: true })
+      i.addEventListener('error', handler, { once: true })
+    }
+  })
+  if (loaded + failed >= total) onDone()
+  return () => imgs.forEach((i) => {
+    i.removeEventListener('load', handler)
+    i.removeEventListener('error', handler)
+  })
+}
+
 export default function HallPage({ hallId }: Props) {
   const hall = hallMap[hallId]
   const navigateHome = useMuseumStore((s) => s.navigateHome)
@@ -44,6 +84,12 @@ export default function HallPage({ hallId }: Props) {
       alive = false
     }
   }, [hallId, exhibitsByHall, loadHall])
+
+  // 首屏图加载耗时统计：进馆后约 200ms（等待图片元素挂载）启动一次
+  useEffect(() => {
+    const cleanup = setTimeout(() => watchFirstPaintPerf(hallId), 200)
+    return () => clearTimeout(cleanup)
+  }, [hallId])
 
   const loaded = exhibitsByHall[hallId] || []
 

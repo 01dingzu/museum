@@ -111,7 +111,7 @@ function mapRow(b, denom) {
     description: `古代${denom.label}钱币，发行于${auth}。来自 Nomisma 钱币学开放数据（CC-BY）。`,
     tags: ['古代钱币', denom.label],
     icon: '🪙',
-    imageUrl: img,
+    imageUrl: img.replace('/large_', '/small_'),
     imageLarge: img,
     source: 'Nomisma',
     sourceUrl: uri || 'https://nomisma.org/',

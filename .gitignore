@@ -5,3 +5,7 @@ dist/
 *.log
 *.tsbuildinfo
 shot-*.png
+# vite 调试时自动生成的临时文件（用于热更新 esbuild bundling）
+*.timestamp-*.mjs
+# 一次性扫描脚本的临时输出
+scan-*-bad.json

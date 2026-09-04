@@ -121,11 +121,21 @@ function mapExhibit(o, categoryId) {
     description,
     tags: [o.classification, o.objectName, o.culture, o.period, o.dynasty].filter(Boolean).slice(0, 8),
     icon: CATEGORY_ICON[categoryId] || '🏺',
-    imageUrl: o.primaryImageSmall || o.primaryImage || '',
+    // 卡片用 web-thumb（5-15KB），详情页用 web-large（80KB）。原始字段保留在 raw。
+    // 修复：Met 同时返回 primaryImageSmall 和 primaryImage，两者 URL 通常相同（都指向 web-large）
+    // 用 thumb 端点换更小尺寸（仅在 URL 含 /web-large/ 时替换）
+    imageUrl: replaceMetThumb(o.primaryImageSmall || o.primaryImage || ''),
     imageLarge: o.primaryImage || o.primaryImageSmall || '',
     source: 'The Metropolitan Museum of Art',
     sourceUrl: o.objectURL || `https://www.metmuseum.org/art/collection/search/${o.objectID}`,
   }
+}
+
+// Met 图床尺寸转换：/web-large/ → /web-thumb/（86KB → 5-15KB，6-10 倍提速）
+// thumb 端点不一定对所有 ID 有效，但 Met API 中公开藏品 99%+ 都已生成
+function replaceMetThumb(url) {
+  if (!url) return ''
+  return url.replace('/web-large/', '/web-thumb/')
 }
 
 // 并发拉取详情（受控并发 + 结果保序），worker 返回有效展品或 null

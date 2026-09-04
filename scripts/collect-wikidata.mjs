@@ -14,6 +14,7 @@
 import { writeFile, mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+import crypto from 'node:crypto'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const OUT_DIR = path.join(__dirname, '..', 'public', 'data')
@@ -24,10 +25,36 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms))
 }
 
+// Wikimedia thumb 直链：上传到 upload.wikimedia.org，路径 hash 用 SHA-1
+// 绕开 Special:FilePath 302 跳转，并强制指定 width 缩略图
+// 规则：对「空格变下划线」的 filename 做 SHA-1，取 hash[0] 和 hash[0:2] 作为目录
+function sha1Hex(s) { return crypto.createHash('sha1').update(s).digest('hex') }
+function thumbUrl(filename, width) {
+  const safe = filename.replace(/ /g, '_')
+  const h = sha1Hex(safe)
+  const enc = encodeURIComponent(safe)
+  return `https://upload.wikimedia.org/wikipedia/commons/thumb/${h[0]}/${h.substring(0, 2)}/${enc}/${width}px-${enc}`
+}
+
 function imageUrl(raw, width) {
   if (!raw) return ''
-  let url = raw.startsWith('http') ? raw.replace(/^http:/, 'https:') : `https://commons.wikimedia.org/wiki/Special:FilePath/${raw}`
-  return `${url}?width=${width}`
+  // 已是 URL：取 pathname 后的 filename，构造直链
+  // 是字符串（File: 后面的标题）：直接当 filename 用
+  let filename
+  if (raw.startsWith('http')) {
+    try {
+      const u = new URL(raw)
+      // Special:FilePath/XXX?width=NNN → 提取 XXX
+      const m = u.pathname.match(/Special:FilePath\/(.+)/)
+      filename = m ? decodeURIComponent(m[1]) : decodeURIComponent(u.pathname.split('/').pop() || '')
+    } catch (e) {
+      return ''
+    }
+  } else {
+    filename = raw
+  }
+  if (!filename) return ''
+  return thumbUrl(filename, width)
 }
 
 // 类别名 → 一组查询（每条一个 where + limit）
