@@ -12,7 +12,6 @@ interface Props {
 
 export default function ExhibitCard({ exhibit, hall, onOpen, index = 99 }: Props) {
   const [imgError, setImgError] = useState(false)
-  const [imgLoaded, setImgLoaded] = useState(false)
   const isFavorite = useMuseumStore((s) => s.isFavorite(exhibit.id))
   const toggleFavorite = useMuseumStore((s) => s.toggleFavorite)
   const favorite = isFavorite
@@ -41,8 +40,6 @@ export default function ExhibitCard({ exhibit, hall, onOpen, index = 99 }: Props
             loading="lazy"
             decoding="async"
             fetchPriority={fetchpriority as 'high' | 'low' | 'auto'}
-            className={imgLoaded ? 'is-loaded' : 'is-loading'}
-            onLoad={() => setImgLoaded(true)}
             onError={() => setImgError(true)}
           />
         ) : (
@@ -50,9 +47,6 @@ export default function ExhibitCard({ exhibit, hall, onOpen, index = 99 }: Props
             <span className="card-fallback-icon">{exhibit.icon}</span>
             <span className="card-fallback-name">{exhibit.name}</span>
           </div>
-        )}
-        {!imgLoaded && exhibit.imageUrl && !imgError && (
-          <div className="card-skeleton" aria-hidden="true" />
         )}
         {exhibit.custom && <span className="card-custom-badge">我的展品</span>}
       </div>

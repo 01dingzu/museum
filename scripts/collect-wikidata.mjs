@@ -14,7 +14,6 @@
 import { writeFile, mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
-import crypto from 'node:crypto'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const OUT_DIR = path.join(__dirname, '..', 'public', 'data')
@@ -25,26 +24,25 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms))
 }
 
-// Wikimedia thumb 直链：上传到 upload.wikimedia.org，路径 hash 用 SHA-1
-// 绕开 Special:FilePath 302 跳转，并强制指定 width 缩略图
-// 规则：对「空格变下划线」的 filename 做 SHA-1，取 hash[0] 和 hash[0:2] 作为目录
-function sha1Hex(s) { return crypto.createHash('sha1').update(s).digest('hex') }
-function thumbUrl(filename, width) {
+// Wikimedia 图片统一走 images.weserv.nl 代理（国内可直连的 Cloudflare CDN）：
+//   https://images.weserv.nl/?url=<enc(commons.wikimedia.org/wiki/Special:FilePath/<enc(filename)>?width=N)>
+// 实测结论：weserv 无法直接代理 upload.wikimedia.org（原图大图像素超限 / thumb 400），
+//          唯一稳定格式是 Special:FilePath 带 ?width（服务端跟 302 到预生成 thumb）。
+//          MediaWiki 路径 hash 是 MD5 不是 SHA-1（但代理方案用不到 hash）。
+function proxiedUrl(filename, width) {
   const safe = filename.replace(/ /g, '_')
-  const h = sha1Hex(safe)
   const enc = encodeURIComponent(safe)
-  return `https://upload.wikimedia.org/wikipedia/commons/thumb/${h[0]}/${h.substring(0, 2)}/${enc}/${width}px-${enc}`
+  const sfp = `commons.wikimedia.org/wiki/Special:FilePath/${enc}?width=${width}`
+  return `https://images.weserv.nl/?url=${encodeURIComponent(sfp)}`
 }
 
 function imageUrl(raw, width) {
   if (!raw) return ''
-  // 已是 URL：取 pathname 后的 filename，构造直链
-  // 是字符串（File: 后面的标题）：直接当 filename 用
+  // 已是 URL：取 pathname 后的 filename；是字符串（File: 后面的标题）：直接当 filename 用
   let filename
   if (raw.startsWith('http')) {
     try {
       const u = new URL(raw)
-      // Special:FilePath/XXX?width=NNN → 提取 XXX
       const m = u.pathname.match(/Special:FilePath\/(.+)/)
       filename = m ? decodeURIComponent(m[1]) : decodeURIComponent(u.pathname.split('/').pop() || '')
     } catch (e) {
@@ -54,7 +52,7 @@ function imageUrl(raw, width) {
     filename = raw
   }
   if (!filename) return ''
-  return thumbUrl(filename, width)
+  return proxiedUrl(filename, width)
 }
 
 // 类别名 → 一组查询（每条一个 where + limit）

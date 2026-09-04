@@ -23,7 +23,7 @@ function watchFirstPaintPerf(hallId: string) {
   const onDone = () => {
     const elapsed = Math.round(performance.now() - start)
     const resources = (performance.getEntriesByType('resource') as PerformanceResourceTiming[]).filter(
-      (r) => r.initiatorType === 'img' && /metmuseum|britishmuseum|wikimedia|galloromeinsmuseum/.test(r.name),
+      (r) => r.initiatorType === 'img' && /metmuseum|britishmuseum|weserv|wikimedia|galloromeinsmuseum/.test(r.name),
     )
     const actualBytes = resources.reduce((s, r) => s + (r.transferSize || r.encodedBodySize || 0), 0)
     console.log(
