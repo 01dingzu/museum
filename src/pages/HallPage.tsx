@@ -64,7 +64,20 @@ export default function HallPage({ hallId }: Props) {
   const [showAdd, setShowAdd] = useState(false)
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
   const [loading, setLoading] = useState(false)
+  const [hideDirectory, setHideDirectory] = useState(false)
   const sentinelRef = useRef<HTMLDivElement | null>(null)
+
+  const directoryFlags = useMuseumStore((s) => s.directoryFlags)
+  const loadDirectoryFlags = useMuseumStore((s) => s.loadDirectoryFlags)
+
+  // X1 去伪：工业馆 / 美术馆存在「目录型条目」（路灯、卫星、John Thomas 摄影等）
+  const flagSet = useMemo(
+    () => new Set(directoryFlags?.[hallId] ?? []),
+    [directoryFlags, hallId],
+  )
+  useEffect(() => {
+    if (hallId === 'industry' || hallId === 'art') loadDirectoryFlags()
+  }, [hallId, loadDirectoryFlags])
 
   // 懒加载展馆数据
   useEffect(() => {
@@ -104,6 +117,7 @@ export default function HallPage({ hallId }: Props) {
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
     return exhibits.filter((e) => {
+      if (hideDirectory && flagSet.has(e.id)) return false
       if (category !== 'all' && e.categoryId !== category) return false
       if (!q) return true
       const hay = [e.name, e.origin, e.era, e.description, ...e.tags]
@@ -111,12 +125,12 @@ export default function HallPage({ hallId }: Props) {
         .toLowerCase()
       return hay.includes(q)
     })
-  }, [exhibits, category, search])
+  }, [exhibits, category, search, hideDirectory, flagSet])
 
   // 搜索 / 分类变化时重置滚动
   useEffect(() => {
     setVisibleCount(PAGE_SIZE)
-  }, [category, search])
+  }, [category, search, hideDirectory])
 
   // 无限滚动：sentinel 进入视口时加载更多
   useEffect(() => {
@@ -189,6 +203,16 @@ export default function HallPage({ hallId }: Props) {
             {c.icon} {c.name}
           </button>
         ))}
+        {flagSet.size > 0 && (
+          <button
+            className={`cat-tab dir-toggle ${hideDirectory ? 'active' : ''}`}
+            style={hideDirectory ? { background: hall.theme.primary } : undefined}
+            onClick={() => setHideDirectory((v) => !v)}
+            title="路灯、卫星、同型号舰船等系列性目录条目，不是独立展品"
+          >
+            {hideDirectory ? '☑' : '☐'} 隐藏目录条目（{flagSet.size}）
+          </button>
+        )}
       </div>
 
       {loading ? (

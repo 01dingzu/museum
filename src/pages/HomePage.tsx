@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { halls } from '../data/halls'
 import { useMuseumStore } from '../store/museumStore'
 import ExhibitCard from '../components/ExhibitCard'
-import type { HallId } from '../types'
+import type { HallId, SpecialId } from '../types'
 
 const hallIcons: Record<string, string> = {
   antiquity: '🏺',
@@ -13,9 +13,40 @@ const hallIcons: Record<string, string> = {
   music: '🎻',
 }
 
+const specials: {
+  id: SpecialId
+  icon: string
+  name: string
+  desc: string
+  hall: HallId
+}[] = [
+  {
+    id: 'industrial-revolution',
+    icon: '⚙️',
+    name: '革命主轴',
+    desc: '1764–1981：动力、交通、信息、计算四线并进的 19 件里程碑',
+    hall: 'industry',
+  },
+  {
+    id: 'antiquity-timeline',
+    icon: '🏺',
+    name: '年表长廊',
+    desc: '把数千件古物按年代排开：从史前工具到近代器物',
+    hall: 'antiquity',
+  },
+  {
+    id: 'artists',
+    icon: '🎨',
+    name: '艺术家长厅',
+    desc: '以艺术家为厅——从丢勒到梵高，每位都有一间自己的展厅',
+    hall: 'art',
+  },
+]
+
 export default function HomePage() {
   const navigateHall = useMuseumStore((s) => s.navigateHall)
   const navigateDetail = useMuseumStore((s) => s.navigateDetail)
+  const navigateSpecial = useMuseumStore((s) => s.navigateSpecial)
   const customExhibits = useMuseumStore((s) => s.customExhibits)
   const favorites = useMuseumStore((s) => s.favorites)
   const hallCounts = useMuseumStore((s) => s.hallCounts)
@@ -82,6 +113,28 @@ export default function HomePage() {
             </span>
           </div>
         ))}
+      </div>
+
+      <h3 className="section-title">特别展区</h3>
+      <div className="specials-grid">
+        {specials.map((sp) => {
+          const theme = halls.find((h) => h.id === sp.hall)!.theme
+          return (
+            <div
+              key={sp.id}
+              className="special-card"
+              style={{ borderColor: theme.primary }}
+              onClick={() => navigateSpecial(sp.id)}
+            >
+              <span className="special-icon">{sp.icon}</span>
+              <h4>{sp.name}</h4>
+              <p>{sp.desc}</p>
+              <span className="special-enter" style={{ color: theme.primary }}>
+                进入展区 →
+              </span>
+            </div>
+          )
+        })}
       </div>
 
       {featuredList.length > 0 && (

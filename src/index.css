@@ -884,3 +884,365 @@ select {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== 特别展区 ===== */
+.dir-toggle {
+  margin-left: auto;
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.special-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: var(--shadow);
+}
+
+.special-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.special-icon {
+  font-size: 26px;
+}
+
+.special-card h4 {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  margin: 6px 0 4px;
+}
+
+.special-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.special-enter {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.special-header {
+  border-left: 4px solid var(--gold);
+  padding-left: 16px;
+}
+
+.special-icon {
+  font-size: 30px;
+  vertical-align: -2px;
+}
+
+/* --- 工业革命主轴 --- */
+.rev-axis-wrap {
+  margin-top: 8px;
+}
+
+.rev-axis-scroll {
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.rev-axis-inner {
+  position: relative;
+}
+
+.rev-axis-ruler {
+  position: relative;
+  height: 28px;
+  margin-left: 130px;
+  border-bottom: 2px solid var(--border);
+}
+
+.rev-axis-ruler span {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.rev-axis-ruler span::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 1px;
+  height: 6px;
+  background: var(--border);
+}
+
+.rev-lane {
+  display: flex;
+  align-items: stretch;
+}
+
+.rev-lane-head {
+  flex: 0 0 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 12px 10px 0;
+}
+
+.rev-lane-icon {
+  font-size: 18px;
+}
+
+.rev-lane-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.rev-lane-track {
+  position: relative;
+  flex: 1;
+  min-height: 118px;
+}
+
+.rev-lane-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 59px;
+  height: 2px;
+  opacity: 0.25;
+}
+
+.rev-node {
+  position: absolute;
+  top: 6px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 108px;
+  padding: 6px 4px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+  text-align: center;
+}
+
+.rev-node:hover {
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+}
+
+.rev-node-down {
+  top: auto;
+  bottom: 6px;
+  flex-direction: column-reverse;
+}
+
+.rev-node-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+  margin: 3px 0;
+}
+
+.rev-node-year {
+  font-weight: 700;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.rev-node-name {
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.rev-node-era {
+  font-size: 10px;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.rev-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* --- 古物年表长廊 --- */
+.anti-overview {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  flex-wrap: wrap;
+  padding: 14px 4px 6px;
+  min-height: 90px;
+}
+
+.anti-bar {
+  width: 14px;
+  background: var(--gold-light);
+  border-radius: 3px 3px 0 0;
+  transition: all 0.15s;
+  opacity: 0.75;
+}
+
+.anti-bar:hover {
+  background: var(--gold);
+  opacity: 1;
+}
+
+.anti-bar.active {
+  background: var(--gold);
+  opacity: 1;
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.anti-overview-label {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 6px;
+}
+
+.anti-active-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 12px 0 14px;
+}
+
+.anti-active-head h3 {
+  font-family: var(--font-serif);
+  font-size: 19px;
+}
+
+.anti-active-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.anti-back {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.anti-back:hover {
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.anti-more {
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  font-size: 14px;
+}
+
+.anti-more:hover {
+  box-shadow: var(--shadow);
+}
+
+.anti-hint {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+/* --- 艺术家长厅 --- */
+.art-masterwall {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.artist-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-align: left;
+  transition: all 0.15s;
+  box-shadow: var(--shadow);
+}
+
+.artist-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.artist-strip {
+  display: flex;
+  height: 96px;
+  background: var(--gold-bg);
+}
+
+.artist-strip img {
+  flex: 1;
+  min-width: 0;
+  object-fit: cover;
+  height: 100%;
+  border-right: 1px solid var(--bg);
+}
+
+.artist-body {
+  padding: 10px 14px 12px;
+}
+
+.artist-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.artist-name-en {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.artist-count {
+  font-size: 12.5px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+@media (max-width: 900px) {
+  .specials-grid,
+  .artist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .art-masterwall {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rev-lane-head {
+    flex-basis: 96px;
+    font-size: 12px;
+  }
+}

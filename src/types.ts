@@ -63,7 +63,11 @@ export interface Exhibit {
   custom?: boolean
 }
 
+// 特别展区（策展叙事页，独立于六大馆）
+export type SpecialId = 'industrial-revolution' | 'artists' | 'antiquity-timeline'
+
 export type View =
   | { name: 'home' }
   | { name: 'hall'; hallId: HallId }
   | { name: 'detail'; exhibitId: string }
+  | { name: 'special'; specialId: SpecialId }

@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { Exhibit, HallId, View } from '../types'
+import type { Exhibit, HallId, SpecialId, View } from '../types'
 
 interface MuseumState {
   view: View
@@ -11,6 +11,9 @@ interface MuseumState {
   hallCounts: Partial<Record<HallId, number>>
   featured: Partial<Record<HallId, Exhibit[]>>
   manifestLoaded: boolean
+  // 特别展区的数据缓存（键 = specialId）+ X1 去伪标记
+  specials: Record<string, unknown>
+  directoryFlags: Partial<Record<HallId, string[]>> | null
   addExhibit: (exhibit: Exhibit) => void
   removeExhibit: (id: string) => void
   toggleFavorite: (id: string) => void
@@ -18,9 +21,12 @@ interface MuseumState {
   navigateHome: () => void
   navigateHall: (hallId: HallId) => void
   navigateDetail: (exhibitId: string) => void
+  navigateSpecial: (specialId: SpecialId) => void
   loadHall: (hallId: HallId) => Promise<Exhibit[]>
   loadManifest: () => Promise<void>
   findExhibit: (id: string) => Promise<Exhibit | undefined>
+  loadSpecial: (specialId: SpecialId) => Promise<unknown>
+  loadDirectoryFlags: () => Promise<void>
 }
 
 let idCounter = 0
@@ -58,7 +64,8 @@ export const useMuseumStore = create<MuseumState>()(
       hallCounts: {},
       featured: {},
       manifestLoaded: false,
-
+      specials: {},
+      directoryFlags: null,
       addExhibit: (exhibit) =>
         set((s) => ({
           customExhibits: [
@@ -85,6 +92,28 @@ export const useMuseumStore = create<MuseumState>()(
       navigateHome: () => set({ view: { name: 'home' } }),
       navigateHall: (hallId) => set({ view: { name: 'hall', hallId } }),
       navigateDetail: (exhibitId) => set({ view: { name: 'detail', exhibitId } }),
+      navigateSpecial: (specialId) => set({ view: { name: 'special', specialId } }),
+
+      loadSpecial: async (specialId) => {
+        const cached = get().specials[specialId]
+        if (cached) return cached
+        const data = await fetchJson<unknown>(`${BASE}data/specials/${specialId}.json`)
+        set((s) => ({ specials: { ...s.specials, [specialId]: data } }))
+        return data
+      },
+
+      loadDirectoryFlags: async () => {
+        if (get().directoryFlags) return
+        try {
+          const flags = await fetchJson<Partial<Record<HallId, string[]>>>(
+            `${BASE}data/specials/directory-flags.json`,
+          )
+          set({ directoryFlags: flags })
+        } catch (_err) {
+          // 标记缺失时降级为空：不去伪，展示全部
+          set({ directoryFlags: {} })
+        }
+      },
 
       loadHall: async (hallId) => {
         const cached = get().exhibitsByHall[hallId]
