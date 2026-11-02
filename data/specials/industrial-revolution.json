@@ -1,0 +1,194 @@
+{
+ "title": "革命主轴",
+ "subtitle": "1764–1981：四条线如何把世界拧成现代的样子",
+ "lanes": [
+  {
+   "id": "power",
+   "name": "动力与能源",
+   "color": "#c2571f",
+   "icon": "⚙️",
+   "nodes": [
+    {
+     "id": "industry-curated-spinning-jenny",
+     "name": "珍妮纺纱机",
+     "year": 1764,
+     "dateLabel": "1764 年",
+     "era": "第一次工业革命",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FSpinning_jenny.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-watt-steam-engine",
+     "name": "瓦特蒸汽机",
+     "year": 1776,
+     "dateLabel": "1776 年",
+     "era": "第一次工业革命",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FMaquina_vapor_Watt_ETSIIM.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-faraday-generator",
+     "name": "法拉第发电机",
+     "year": 1831,
+     "dateLabel": "1831 年",
+     "era": "电力时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FFaraday_disk_-_National_Museum_of_Nature_and_Science%252C_Tokyo_-_DSC07366.JPG%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-bessemer-converter",
+     "name": "贝塞麦转炉",
+     "year": 1856,
+     "dateLabel": "1856 年",
+     "era": "钢铁时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FBessemer_converter.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-otto-engine",
+     "name": "奥托四冲程内燃机",
+     "year": 1876,
+     "dateLabel": "1876 年",
+     "era": "内燃机时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FOtto_four-stroke-cycle_internal_combustion_engine.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-edison-light-bulb",
+     "name": "爱迪生白炽灯",
+     "year": 1879,
+     "dateLabel": "1879 年",
+     "era": "电气照明",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FThomas_Edison_Lightbulbs_1879-1880.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-tesla-coil",
+     "name": "特斯拉线圈",
+     "year": 1891,
+     "dateLabel": "1891 年",
+     "era": "电气时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FNikola_Tesla_Smiljan_16.jpg%3Fwidth%3D600"
+    }
+   ]
+  },
+  {
+   "id": "transport",
+   "name": "交通与移动",
+   "color": "#1f6fc2",
+   "icon": "🚂",
+   "nodes": [
+    {
+     "id": "industry-curated-rocket-locomotive",
+     "name": "史蒂芬森「火箭号」机车",
+     "year": 1829,
+     "dateLabel": "1829 年",
+     "era": "铁路时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FStephenson_Rocket_at_the_National_Railway_Museum_York_Oct25_04.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-benz-patent-motorwagen",
+     "name": "奔驰专利汽车",
+     "year": 1886,
+     "dateLabel": "1886 年",
+     "era": "汽车诞生",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FPatent-Motorwagen_Nr.1_Benz_2.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-wright-flyer",
+     "name": "莱特兄弟「飞行者一号」",
+     "year": 1903,
+     "dateLabel": "1903 年",
+     "era": "航空诞生",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FFirst_flight2.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-ford-model-t",
+     "name": "福特 T 型车",
+     "year": 1908,
+     "dateLabel": "1908 年",
+     "era": "汽车普及",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FFord_T_Jon_Sullivan.jpg%3Fwidth%3D600"
+    }
+   ]
+  },
+  {
+   "id": "information",
+   "name": "信息与传播",
+   "color": "#7a1fb8",
+   "icon": "📡",
+   "nodes": [
+    {
+     "id": "industry-curated-morse-telegraph",
+     "name": "莫尔斯电报机",
+     "year": 1837,
+     "dateLabel": "1837 年",
+     "era": "电报时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FMorse_Telegraph_1837.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-bell-telephone",
+     "name": "贝尔电话",
+     "year": 1876,
+     "dateLabel": "1876 年",
+     "era": "电话时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FBell_%2522iron_box%2522_telephone_receiver_1876.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-edison-phonograph",
+     "name": "爱迪生留声机",
+     "year": 1877,
+     "dateLabel": "1877 年",
+     "era": "声音记录",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FEdison_phonograph-CnAM_18732-IMG_5309-gradient.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-marconi-radio",
+     "name": "马可尼无线电",
+     "year": 1895,
+     "dateLabel": "1895 年",
+     "era": "无线电时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FQuenched_spark_transmitter_-_Nauen_Radio_Station%252C_Nauen_Germany_1921.jpg%3Fwidth%3D600"
+    }
+   ]
+  },
+  {
+   "id": "computing",
+   "name": "计算与太空",
+   "color": "#0f8a5f",
+   "icon": "🛰️",
+   "nodes": [
+    {
+     "id": "industry-curated-eniac",
+     "name": "ENIAC 计算机",
+     "year": 1945,
+     "dateLabel": "1945 年",
+     "era": "电子计算",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FTwo_women_operating_ENIAC_(full_resolution).jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-sputnik-1",
+     "name": "斯普特尼克一号",
+     "year": 1957,
+     "dateLabel": "1957 年",
+     "era": "太空时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FSputnik.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-apollo-guidance-computer",
+     "name": "阿波罗导航计算机",
+     "year": 1969,
+     "dateLabel": "1969 年",
+     "era": "登月时代",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FAgc_view.jpg%3Fwidth%3D600"
+    },
+    {
+     "id": "industry-curated-ibm-pc",
+     "name": "IBM PC（5150）",
+     "year": 1981,
+     "dateLabel": "1981 年",
+     "era": "个人电脑",
+     "imageUrl": "https://images.weserv.nl/?url=commons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FIBM_PC_5150.jpg%3Fwidth%3D600"
+    }
+   ]
+  }
+ ],
+ "range": [
+  1764,
+  1981
+ ]
+}
