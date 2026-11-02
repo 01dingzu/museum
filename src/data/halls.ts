@@ -115,9 +115,9 @@ export const halls: Hall[] = [
   {
     id: 'music',
     name: '音乐乐器馆',
-    subtitle: '人类发声与旋律的载体',
+    subtitle: '乐器、乐谱与旋律的千年演进',
     description:
-      '从弦乐到键盘，从木管到铜管，从打击乐到世界各民族乐器，收录人类音乐史上用于演奏与表达的所有乐器。',
+      '从弦乐到键盘，从木管到铜管，从打击乐到世界各民族乐器，再到公版乐谱影像——收录人类音乐史上用于演奏、记谱与表达的一切载体。',
     theme: {
       primary: '#1f4e79',
       secondary: '#7fb3d5',
@@ -130,6 +130,7 @@ export const halls: Hall[] = [
       { id: 'woodwind', name: '木管乐器', description: '长笛、单簧管与双簧管', icon: '🪈' },
       { id: 'brass', name: '铜管乐器', description: '小号、圆号与长号', icon: '🎺' },
       { id: 'percussion', name: '打击乐器', description: '鼓、钹与木琴', icon: '🥁' },
+      { id: 'scores', name: '乐谱与手稿', description: '公版乐谱影像：标题页与首页', icon: '🎼' },
     ],
   },
   {
@@ -151,6 +152,47 @@ export const halls: Hall[] = [
       { id: 'chemistry', name: '化学', description: '从波义耳到鲍林：化学家与原典', icon: '⚗️' },
       { id: 'biology', name: '生物学', description: '从林奈到双螺旋：生物学家与原典', icon: '🧬' },
       { id: 'geology', name: '地质学', description: '从赫顿到大陆漂移：地质学家与原典', icon: '🌍' },
+    ],
+  },
+  {
+    id: 'literature',
+    name: '文学馆',
+    subtitle: '世界文学经典的纸上长廊',
+    description:
+      '从荷马史诗到《红楼梦》，从莎士比亚到博尔赫斯，收录公版文学作品、作家与史诗神话的图像资料。',
+    theme: {
+      primary: '#6b4226',
+      secondary: '#d2a679',
+      gradient: 'linear-gradient(135deg, #f7efe4 0%, #ecdcc3 100%)',
+      accent: '#4a2d18',
+    },
+    categories: [
+      { id: 'novel', name: '小说', description: '从塞万提斯到马尔克斯的长篇经典', icon: '📖' },
+      { id: 'poetry', name: '诗歌', description: '从荷马到艾略特的诗篇', icon: '🕊️' },
+      { id: 'drama', name: '戏剧', description: '莎士比亚、易卜生与布莱希特', icon: '🎭' },
+      { id: 'tale', name: '童话与短篇', description: '格林、安徒生与短篇大师', icon: '🧚' },
+      { id: 'epic', name: '史诗与神话', description: '吉尔伽美什到摩诃婆罗多', icon: '📜' },
+      { id: 'writer', name: '作家', description: '世界文学史上的笔与肖像', icon: '✍️' },
+    ],
+  },
+  {
+    id: 'anime',
+    name: '动漫馆',
+    subtitle: '漫画与动画的公版史前史',
+    description:
+      '从鸟兽戏画到北斋漫画，从托普弗的连环画到《威利号汽船》——只收录已进入公有领域的漫画与动画史料，现代商业动漫因版权不收。',
+    theme: {
+      primary: '#b3446c',
+      secondary: '#e8a7bd',
+      gradient: 'linear-gradient(135deg, #fbeff3 0%, #f4d6e0 100%)',
+      accent: '#8c2f52',
+    },
+    categories: [
+      { id: 'scroll', name: '古代绘卷', description: '鸟兽戏画与平安镰仓绘卷叙事', icon: '📜' },
+      { id: 'ukiyo', name: '浮世绘与画集', description: '北斋漫画四千图页', icon: '🌊' },
+      { id: 'strips', name: '连环画与讽刺画', description: '托普弗、布施到黄色新闻漫画', icon: '🖋️' },
+      { id: 'animation', name: '早期动画', description: '1900–1930 欧美日动画先驱', icon: '🎬' },
+      { id: 'characters', name: '公版角色', description: '菲利克斯猫、威利号米奇与卜派', icon: '🐭' },
     ],
   },
 ]

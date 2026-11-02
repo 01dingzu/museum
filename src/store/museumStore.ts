@@ -52,6 +52,8 @@ function hallOf(id: string): HallId {
   if (id.startsWith('art-')) return 'art'
   if (id.startsWith('music-')) return 'music'
   if (id.startsWith('science-')) return 'science'
+  if (id.startsWith('literature-') || id.startsWith('lit-')) return 'literature'
+  if (id.startsWith('anime-')) return 'anime'
   return 'antiquity'
 }
 
@@ -134,7 +136,9 @@ export const useMuseumStore = create<MuseumState>()(
           }>(`${BASE}data/manifest.json`)
           const hallCounts: Partial<Record<HallId, number>> = {}
           const featured: Partial<Record<HallId, Exhibit[]>> = {}
-          for (const k of ['antiquity', 'industry', 'nature', 'finance', 'art', 'music', 'science'] as HallId[]) {
+          for (const k of [
+            'antiquity', 'industry', 'nature', 'finance', 'art', 'music', 'science', 'literature', 'anime',
+          ] as HallId[]) {
             if (m[k]) {
               hallCounts[k] = m[k]!.count
               featured[k] = m[k]!.featured

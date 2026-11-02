@@ -15,7 +15,7 @@ import { fillTimelineFields } from './lib/industry-rules.mjs'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.join(__dirname, '..')
 const DATA_DIR = path.join(ROOT, 'public', 'data')
-const HALLS = ['antiquity', 'industry', 'nature', 'finance', 'art', 'music', 'science']
+const HALLS = ['antiquity', 'industry', 'nature', 'finance', 'art', 'music', 'science', 'literature', 'anime']
 
 // 1. 提取策展展品
 async function extractCurated() {

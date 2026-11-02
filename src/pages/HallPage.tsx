@@ -3,7 +3,10 @@ import type { HallId } from '../types'
 import { hallMap } from '../data/halls'
 import { useMuseumStore } from '../store/museumStore'
 import ExhibitCard from '../components/ExhibitCard'
-import IndustryTimeline from '../components/IndustryTimeline'
+import LaneTimeline from '../components/LaneTimeline'
+import type { TimelineConfig } from '../components/LaneTimeline'
+import { industryTimelineConfig } from '../components/IndustryTimeline'
+import { musicTimelineConfig } from '../data/musicLanes'
 import AddExhibitModal from '../components/AddExhibitModal'
 
 interface Props {
@@ -70,7 +73,12 @@ export default function HallPage({ hallId }: Props) {
   const [hideDirectory, setHideDirectory] = useState(false)
   const sentinelRef = useRef<HTMLDivElement | null>(null)
 
-  const isTimeline = hallId === 'industry' && view === 'timeline'
+  // 时间轴视图：工业馆 / 音乐乐器馆
+  const timeline: TimelineConfig | null =
+    hallId === 'industry' ? industryTimelineConfig
+    : hallId === 'music' ? musicTimelineConfig
+    : null
+  const isTimeline = timeline != null && view === 'timeline'
 
   const directoryFlags = useMuseumStore((s) => s.directoryFlags)
   const loadDirectoryFlags = useMuseumStore((s) => s.loadDirectoryFlags)
@@ -177,7 +185,7 @@ export default function HallPage({ hallId }: Props) {
             placeholder="搜索展品名称、文明、时代……"
           />
         </div>
-        {hallId === 'industry' && (
+        {timeline && (
           <div className="view-toggle" role="tablist" aria-label="浏览方式">
             <button
               className={`view-btn ${!isTimeline ? 'active' : ''}`}
@@ -191,7 +199,7 @@ export default function HallPage({ hallId }: Props) {
               style={isTimeline ? { background: hall.theme.primary, borderColor: 'transparent' } : undefined}
               onClick={() => setView('timeline')}
             >
-              📈 产业时间轴
+              {timeline.toggleLabel ?? '📈 时间轴'}
             </button>
           </div>
         )}
@@ -258,8 +266,8 @@ export default function HallPage({ hallId }: Props) {
           <div className="loading-spinner" />
           <p>正在加载展品数据…</p>
         </div>
-      ) : isTimeline ? (
-        <IndustryTimeline exhibits={filtered} hall={hall} onOpen={navigateDetail} />
+      ) : isTimeline && timeline ? (
+        <LaneTimeline exhibits={filtered} hall={hall} onOpen={navigateDetail} config={timeline} />
       ) : filtered.length === 0 ? (
         <div className="empty">
           <div className="empty-icon">🔍</div>
