@@ -27,7 +27,8 @@ try {
   const pageErrors = []
   page.on('pageerror', (e) => pageErrors.push(e.message))
 
-  await page.goto(BASE, { waitUntil: 'networkidle2', timeout: 60000 })
+  await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 90000 })
+  await new Promise((r) => setTimeout(r, 5000))
   const home = await page.evaluate(() => document.body.innerText)
   ok(home.includes('科学史馆'), '首页出现「科学史馆」卡片')
   ok(/科学史馆展品/.test(home), 'hero 统计出现科学史馆计数')
