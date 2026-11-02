@@ -1,0 +1,40 @@
+name: validate-science-images
+
+# 一次性数据任务：校验科学史馆图片 URL，剔除源图已失效的条目
+# 触发：手动（workflow_dispatch），或在 science.json 更新后手动跑一次
+# 说明：本机网络对 weserv 触发了 IP 级限流，校验改在 GitHub runner（海外出口）上执行
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 运行图片校验（剔除 404 条目）
+        run: node scripts/validate-science-images.mjs
+
+      - name: 重建 manifest
+        run: node scripts/build-manifest.mjs
+
+      - name: 提交清理结果
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/science.json public/data/manifest.json
+          if git diff --cached --quiet; then
+            echo "无失效条目，无需提交"
+          else
+            git commit -m "chore(science): 剔除源图失效条目（Actions 校验）"
+            git push
+          fi

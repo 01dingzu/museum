@@ -11,6 +11,7 @@ const hallIcons: Record<string, string> = {
   finance: '🪙',
   art: '🎨',
   music: '🎻',
+  science: '🔬',
 }
 
 const specials: {
@@ -73,7 +74,7 @@ export default function HomePage() {
         <div className="hero-eyebrow">Collection of the World</div>
         <h1 className="hero-title">集合世界博物馆</h1>
         <p className="hero-subtitle">
-          一座线上展馆，同时收藏跨越千年的古物、改变世界的工业科学发明、地球亿万年的自然实证、货币演进的财富史、绘画雕塑的艺术瑰宝与人类音乐史上的乐器。
+          一座线上展馆，同时收藏跨越千年的古物、改变世界的工业科学发明、地球亿万年的自然实证、货币演进的财富史、绘画雕塑的艺术瑰宝、人类音乐史上的乐器，以及六大学科的思想演进史。
         </p>
         <div className="hero-stats">
           {halls.map((hall) => (

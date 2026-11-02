@@ -132,6 +132,27 @@ export const halls: Hall[] = [
       { id: 'percussion', name: '打击乐器', description: '鼓、钹与木琴', icon: '🥁' },
     ],
   },
+  {
+    id: 'science',
+    name: '科学史馆',
+    subtitle: '六大学科的思想演进长廊',
+    description:
+      '从欧几里得的几何原本到达尔文的物种起源，从牛顿的原理到 DNA 双螺旋，收录数学、天文、物理、化学、生物、地质六大学科的奠基人物与原典著作。',
+    theme: {
+      primary: '#1a5276',
+      secondary: '#7fb3d5',
+      gradient: 'linear-gradient(135deg, #eaf2f8 0%, #d4e6f1 100%)',
+      accent: '#154360',
+    },
+    categories: [
+      { id: 'math', name: '数学', description: '从几何原本到哥德尔：数学家与原典', icon: '🧮' },
+      { id: 'astronomy', name: '天文学', description: '从托勒密到哈勃：天文学家与原典', icon: '🪐' },
+      { id: 'physics', name: '物理学', description: '从伽利略到费曼：物理学家与原典', icon: '⚛️' },
+      { id: 'chemistry', name: '化学', description: '从波义耳到鲍林：化学家与原典', icon: '⚗️' },
+      { id: 'biology', name: '生物学', description: '从林奈到双螺旋：生物学家与原典', icon: '🧬' },
+      { id: 'geology', name: '地质学', description: '从赫顿到大陆漂移：地质学家与原典', icon: '🌍' },
+    ],
+  },
 ]
 
 export const hallMap: Record<string, Hall> = Object.fromEntries(
