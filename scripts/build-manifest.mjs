@@ -10,6 +10,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import vm from 'node:vm'
+import { fillTimelineFields } from './lib/industry-rules.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.join(__dirname, '..')
@@ -89,6 +90,12 @@ async function main() {
     // 去重：爬取数据里剔除与策展重复的（按 sourceUrl 或 name）
     const curatedIds = new Set(curatedOfHall.map((e) => e.id))
     const merged = [...curatedOfHall, ...scraped.filter((e) => !curatedIds.has(e.id))]
+
+    // 工业馆：策展展品从 exhibits.ts 重建会丢失产业时间轴字段，这里补齐
+    // （year 从 date 解析；industryId 用共享规则推算；已有字段保留不覆盖）
+    if (hall === 'industry') {
+      merged.forEach(fillTimelineFields)
+    }
 
     // 写回 {hall}.json
     await writeFile(path.join(DATA_DIR, `${hall}.json`), JSON.stringify(merged), 'utf8')

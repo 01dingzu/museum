@@ -1246,3 +1246,200 @@ select {
     font-size: 12px;
   }
 }
+
+/* ===== 工业馆·产业时间轴 ===== */
+.view-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.view-btn {
+  padding: 9px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.view-btn + .view-btn {
+  border-left: 1px solid var(--border);
+}
+
+.view-btn:not(.active):hover {
+  color: var(--text);
+}
+
+.view-btn.active {
+  color: #fff;
+}
+
+.timeline-intro {
+  padding: 14px 18px;
+  margin: 4px 0 22px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.industry-lane {
+  margin: 0 0 34px;
+}
+
+.lane-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  flex-wrap: wrap;
+}
+
+.lane-icon {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.lane-title {
+  flex: 1;
+  min-width: 180px;
+}
+
+.lane-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.lane-desc {
+  font-size: 12.5px;
+  color: var(--text-faint);
+  margin-top: 3px;
+}
+
+.lane-meta {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.lane-count {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.lane-span {
+  color: var(--text-faint);
+}
+
+.lane-density {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+}
+
+.lane-density-bar {
+  width: 7px;
+  border-radius: 2px 2px 0 0;
+  background: var(--text-faint);
+  transition: opacity 0.15s;
+}
+
+.lane-body {
+  margin-top: 16px;
+  padding-left: 18px;
+  border-left: 2px solid var(--border);
+}
+
+.era-bucket {
+  margin: 0 0 22px;
+}
+
+.era-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 12px;
+  flex-wrap: wrap;
+}
+
+.era-label {
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--text);
+  position: relative;
+}
+
+.era-label::before {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+
+.era-note {
+  font-size: 12.5px;
+  color: var(--text-faint);
+}
+
+.era-count {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2px 10px;
+}
+
+.era-more {
+  display: block;
+  margin: 12px auto 0;
+  padding: 7px 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.era-more:hover {
+  border-color: var(--gold-light);
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .lane-header {
+    gap: 10px;
+  }
+
+  .lane-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .lane-body {
+    padding-left: 10px;
+  }
+}

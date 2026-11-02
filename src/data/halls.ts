@@ -29,7 +29,7 @@ export const halls: Hall[] = [
   {
     id: 'industry',
     name: '工业科学馆',
-    subtitle: '重塑世界的发明与工程',
+    subtitle: '九大产业的发展脉络与里程碑',
     description:
       '从蒸汽机的第一声轰鸣到登月舱的着陆，收录改变人类命运的动力、能源、通信与计算里程碑。',
     theme: {

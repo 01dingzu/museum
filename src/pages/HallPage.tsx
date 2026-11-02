@@ -3,6 +3,7 @@ import type { HallId } from '../types'
 import { hallMap } from '../data/halls'
 import { useMuseumStore } from '../store/museumStore'
 import ExhibitCard from '../components/ExhibitCard'
+import IndustryTimeline from '../components/IndustryTimeline'
 import AddExhibitModal from '../components/AddExhibitModal'
 
 interface Props {
@@ -62,10 +63,14 @@ export default function HallPage({ hallId }: Props) {
   const [category, setCategory] = useState('all')
   const [search, setSearch] = useState('')
   const [showAdd, setShowAdd] = useState(false)
+  // 工业馆：分类网格 / 产业时间轴 两种浏览方式
+  const [view, setView] = useState<'grid' | 'timeline'>('grid')
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
   const [loading, setLoading] = useState(false)
   const [hideDirectory, setHideDirectory] = useState(false)
   const sentinelRef = useRef<HTMLDivElement | null>(null)
+
+  const isTimeline = hallId === 'industry' && view === 'timeline'
 
   const directoryFlags = useMuseumStore((s) => s.directoryFlags)
   const loadDirectoryFlags = useMuseumStore((s) => s.loadDirectoryFlags)
@@ -172,6 +177,24 @@ export default function HallPage({ hallId }: Props) {
             placeholder="搜索展品名称、文明、时代……"
           />
         </div>
+        {hallId === 'industry' && (
+          <div className="view-toggle" role="tablist" aria-label="浏览方式">
+            <button
+              className={`view-btn ${!isTimeline ? 'active' : ''}`}
+              style={isTimeline ? undefined : { background: hall.theme.primary, borderColor: 'transparent' }}
+              onClick={() => setView('grid')}
+            >
+              🗂 分类浏览
+            </button>
+            <button
+              className={`view-btn ${isTimeline ? 'active' : ''}`}
+              style={isTimeline ? { background: hall.theme.primary, borderColor: 'transparent' } : undefined}
+              onClick={() => setView('timeline')}
+            >
+              📈 产业时间轴
+            </button>
+          </div>
+        )}
         <button
           className="add-btn"
           style={{ background: hall.theme.primary }}
@@ -181,29 +204,8 @@ export default function HallPage({ hallId }: Props) {
         </button>
       </div>
 
-      <div className="category-tabs">
-        <button
-          className={`cat-tab ${category === 'all' ? 'active' : ''}`}
-          style={
-            category === 'all' ? { background: hall.theme.primary } : undefined
-          }
-          onClick={() => setCategory('all')}
-        >
-          全部（{exhibits.length.toLocaleString()}）
-        </button>
-        {hall.categories.map((c) => (
-          <button
-            key={c.id}
-            className={`cat-tab ${category === c.id ? 'active' : ''}`}
-            style={
-              category === c.id ? { background: hall.theme.primary } : undefined
-            }
-            onClick={() => setCategory(c.id)}
-          >
-            {c.icon} {c.name}
-          </button>
-        ))}
-        {flagSet.size > 0 && (
+      {isTimeline && flagSet.size > 0 && (
+        <div className="category-tabs">
           <button
             className={`cat-tab dir-toggle ${hideDirectory ? 'active' : ''}`}
             style={hideDirectory ? { background: hall.theme.primary } : undefined}
@@ -212,14 +214,52 @@ export default function HallPage({ hallId }: Props) {
           >
             {hideDirectory ? '☑' : '☐'} 隐藏目录条目（{flagSet.size}）
           </button>
-        )}
-      </div>
+        </div>
+      )}
+
+      {!isTimeline && (
+        <div className="category-tabs">
+          <button
+            className={`cat-tab ${category === 'all' ? 'active' : ''}`}
+            style={
+              category === 'all' ? { background: hall.theme.primary } : undefined
+            }
+            onClick={() => setCategory('all')}
+          >
+            全部（{exhibits.length.toLocaleString()}）
+          </button>
+          {hall.categories.map((c) => (
+            <button
+              key={c.id}
+              className={`cat-tab ${category === c.id ? 'active' : ''}`}
+              style={
+                category === c.id ? { background: hall.theme.primary } : undefined
+              }
+              onClick={() => setCategory(c.id)}
+            >
+              {c.icon} {c.name}
+            </button>
+          ))}
+          {flagSet.size > 0 && (
+            <button
+              className={`cat-tab dir-toggle ${hideDirectory ? 'active' : ''}`}
+              style={hideDirectory ? { background: hall.theme.primary } : undefined}
+              onClick={() => setHideDirectory((v) => !v)}
+              title="路灯、卫星、同型号舰船等系列性目录条目，不是独立展品"
+            >
+              {hideDirectory ? '☑' : '☐'} 隐藏目录条目（{flagSet.size}）
+            </button>
+          )}
+        </div>
+      )}
 
       {loading ? (
         <div className="loading-state">
           <div className="loading-spinner" />
           <p>正在加载展品数据…</p>
         </div>
+      ) : isTimeline ? (
+        <IndustryTimeline exhibits={filtered} hall={hall} onOpen={navigateDetail} />
       ) : filtered.length === 0 ? (
         <div className="empty">
           <div className="empty-icon">🔍</div>

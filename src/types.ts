@@ -57,6 +57,10 @@ export interface Exhibit {
   imageLarge?: string
   // 数据来源机构（如「大都会艺术博物馆」）
   source?: string
+  // 数值年份（工业馆产业时间轴排序用；负数 = 公元前）
+  year?: number
+  // 产业分类（工业馆时间轴泳道用；textile/metallurgy/power/…）
+  industryId?: string
   // 展品原页面链接（标注出处）
   sourceUrl?: string
   // 是否为用户自定义展品
